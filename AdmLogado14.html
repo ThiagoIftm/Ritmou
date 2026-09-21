@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdmLogado15 - Painel do Administrador</title>
+  <style>
+    /* RESET GLOBAL E FIXAÇÃO DE ROLAGEM */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background-color: #e2e8f0;
+    }
+
+    /* ==================== CABEÇALHO (225PX) ==================== */
+    .header {
+      width: 100%;
+      height: 225px;
+      background-color: #243b8b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-width: 225px;
+    }
+
+    .logo-circle-wrapper {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .admin-badge {
+      background-color: #ef4444;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .search-row {
+      display: flex;
+      align-items: center;
+      gap: 22.5px;
+    }
+
+    .home-btn {
+      width: 72px;
+      height: 72px;
+      background-color: #4a8bf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+      transition: background-color 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #3b7be3;
+    }
+
+    .home-icon {
+      width: 39px;
+      height: 39px;
+      fill: #ffffff;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      width: 510px;
+      height: 72px;
+      background-color: #4a8bf5;
+      border-radius: 36px;
+      padding: 0 27px;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+    }
+
+    .search-icon {
+      width: 33px;
+      height: 33px;
+      fill: #ffffff;
+      margin-right: 18px;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .search-input::placeholder {
+      color: #ffffff;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .nav-btn {
+      background-color: #4a8bf5;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 10px 24px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s;
+    }
+
+    .nav-btn.active {
+      background-color: #ffffff;
+      color: #243b8b;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 225px;
+    }
+
+    .profile-link {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      border: 3px solid #ef4444;
+      transition: transform 0.2s;
+    }
+
+    .profile-link:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==================== MENU LATERAL ESQUERDO ==================== */
+    .sidebar-left {
+      position: fixed;
+      top: 345px;
+      left: 0;
+      bottom: 0;
+      width: 115px;
+      background-color: #243b8b;
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-x: hidden;
+      border-radius: 0 16px 0 0;
+      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-left.expanded {
+      width: 280px;
+      align-items: flex-start;
+      padding: 24px 18px;
+    }
+
+    .sidebar-toggle-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      white-space: nowrap;
+    }
+
+    .sidebar-left.expanded .sidebar-toggle-btn {
+      justify-content: flex-start;
+    }
+
+    .toggle-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .sidebar-title-text {
+      display: none;
+    }
+
+    .sidebar-left.expanded .sidebar-title-text {
+      display: inline;
+    }
+
+    .adm-menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .sidebar-left.expanded .adm-menu-list {
+      align-items: flex-start;
+    }
+
+    .adm-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      white-space: nowrap;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: background-color 0.2s;
+    }
+
+    .adm-menu-item:hover, .adm-menu-item.active {
+      background-color: #4a8bf5;
+    }
+
+    .adm-menu-icon {
+      font-size: 24px;
+      width: 32px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .adm-menu-label {
+      display: none;
+    }
+
+    .sidebar-left.expanded .adm-menu-label {
+      display: inline;
+    }
+
+    /* ==================== MENU LATERAL DIREITO (LOGS DO SISTEMA) ==================== */
+    .sidebar-right {
+      position: fixed;
+      top: 345px;
+      right: 0;
+      bottom: 0;
+      width: 90px;
+      background-color: #243b8b;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ffffff;
+      z-index: 100;
+      cursor: pointer;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      border-radius: 16px 0 0 0;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-right.expanded {
+      width: 340px;
+      padding: 20px;
+      cursor: default;
+      align-items: stretch;
+    }
+
+    .music-collapsed-view {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .music-collapsed-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .sidebar-right.expanded .music-collapsed-view {
+      display: none;
+    }
+
+    .music-expanded-content {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .sidebar-right.expanded .music-expanded-content {
+      display: flex;
+    }
+
+    .sidebar-right-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .back-btn-right {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-right-title {
+      font-size: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .logs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .log-item {
+      background-color: #1a2744;
+      border-radius: 12px;
+      padding: 12px 14px;
+      border-left: 4px solid #4a8bf5;
+    }
+
+    .log-item.alert {
+      border-left-color: #ef4444;
+    }
+
+    .log-item.success {
+      border-left-color: #10b981;
+    }
+
+    .log-time {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+
+    .log-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .log-desc {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    /* ==================== CONTEÚDO PRINCIPAL (PAINEL ADMIN) ==================== */
+    .main-content {
+      position: fixed;
+      top: 345px;
+      bottom: 0;
+      left: 115px;
+      right: 90px;
+      overflow: hidden;
+      padding: 10px 10px 0 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-card-container {
+      background-color: #1c2b4a;
+      border-radius: 20px 20px 0 0;
+      padding: 30px 40px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .admin-card-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .page-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .system-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #10b981;
+      background-color: rgba(16, 185, 129, 0.15);
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    /* CARDS KPIS */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .kpi-card {
+      background-color: #24355a;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .kpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .kpi-icon {
+      font-size: 22px;
+      background-color: #4a8bf5;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .kpi-value {
+      font-size: 30px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .kpi-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: #10b981;
+    }
+
+    /* ESTILOS DE SEÇÕES E TABELAS DE GESTÃO */
+    .section-card {
+      background-color: #24355a;
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 30px;
+    }
+
+    .section-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .btn-add {
+      background-color: #10b981;
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s;
+    }
+
+    .btn-add:hover {
+      background-color: #059669;
+    }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .adm-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .adm-table th {
+      background-color: #1a2744;
+      color: #cbd5e1;
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .adm-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 15px;
+      color: #ffffff;
+    }
+
+    .table-item-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .table-thumb {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .badge-verified {
+      background-color: #3b82f6;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+    }
+
+    .status-pill {
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .status-pill.premium {
+      background-color: rgba(245, 158, 11, 0.2);
+      color: #f59e0b;
+    }
+
+    .status-pill.free {
+      background-color: rgba(148, 163, 184, 0.2);
+      color: #cbd5e1;
+    }
+
+    .btn-delete {
+      background-color: #ef4444;
+      color: #ffffff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-delete:hover {
+      background-color: #dc2626;
+    }
+
+    /* ==================== MODAIS DE CADASTRO ==================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background-color: #1c2b4a;
+      border-radius: 20px;
+      padding: 30px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .close-modal-btn {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 24px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .close-modal-btn:hover {
+      color: #ffffff;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+
+    .form-control {
+      background-color: #24355a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #ffffff;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: #4a8bf5;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn-cancel {
+      background-color: transparent;
+      border: 1px solid #94a3b8;
+      color: #cbd5e1;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      background-color: #4a8bf5;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: #3b7be3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-circle-wrapper">
+        <img src="Imagens/LogoRitmou.png" alt="Logo RITMOU" class="logo-img">
+      </div>
+      <span class="admin-badge">PAINEL ADM</span>
+    </div>
+
+    <div class="header-center">
+      <div class="search-row">
+        <a href="UsuárioLogado4.html" class="home-btn" title="Ir para visão do Usuário">
+          <svg class="home-icon" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+        </a>
+
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" class="search-input" placeholder="Buscar usuários, faixas ou artistas...">
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn active">VISÃO GERAL</button>
+        <button class="nav-btn">CATÁLOGO</button>
+        <button class="nav-btn">USUÁRIOS</button>
+        <button class="nav-btn">FINANCEIRO</button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <a href="UsuárioInfo13.html" class="profile-link" title="Perfil Admin">
+        <img src="Imagens/user_icon.png" alt="Foto Perfil Admin" class="profile-img">
+      </a>
+    </div>
+  </header>
+
+  <!-- MENU LATERAL ESQUERDO -->
+  <aside class="sidebar-left" id="sidebarLeft">
+    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()">
+      <div class="toggle-icon-circle" id="toggleIconLeft">&gt;</div>
+      <span class="sidebar-title-text">Menu Admin</span>
+    </button>
+
+    <div class="adm-menu-list">
+      <a href="#" class="adm-menu-item active">
+        <span class="adm-menu-icon">📊</span>
+        <span class="adm-menu-label">Dashboard</span>
+      </a>
+      <a href="#sec-artistas" class="adm-menu-item">
+        <span class="adm-menu-icon">🎤</span>
+        <span class="adm-menu-label">Gerenciar Artistas</span>
+      </a>
+      <a href="#sec-usuarios" class="adm-menu-item">
+        <span class="adm-menu-icon">👥</span>
+        <span class="adm-menu-label">Gerenciar Usuários</span>
+      </a>
+      <a href="#" class="adm-menu-item">
+        <span class="adm-menu-icon">💳</span>
+        <span class="adm-menu-label">Planos & MRR</span>
+      </a>
+      <a href="#" class="adm-menu-item">
+        <span class="adm-menu-icon">🖼️</span>
+        <span class="adm-menu-label">Banners & Carrossel</span>
+      </a>
+      <a href="#" class="adm-menu-item">
+        <span class="adm-menu-icon">⚙️</span>
+        <span class="adm-menu-label">Configurações</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ÁREA CENTRAL DA PÁGINA -->
+  <main class="main-content" id="mainContent">
+    <section class="admin-card-container">
+      
+      <!-- CABEÇALHO DA PÁGINA -->
+      <div class="page-title-row">
+        <h1 class="page-title">Painel Geral de Controle</h1>
+        <div class="system-status">
+          <span class="status-dot"></span>
+          <span>Servidores Operacionais (99.9%)</span>
+        </div>
+      </div>
+
+      <!-- CARDS KPIS -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>TOTAL USUÁRIOS</span>
+            <div class="kpi-icon">👥</div>
+          </div>
+          <div class="kpi-value" id="kpiTotalUsuarios">124.850</div>
+          <div class="kpi-sub">▲ +12% este mês</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>TOTAL ARTISTAS</span>
+            <div class="kpi-icon">🎤</div>
+          </div>
+          <div class="kpi-value" id="kpiTotalArtistas">1.420</div>
+          <div class="kpi-sub">▲ +5 novos hoje</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>RECEITA (MRR)</span>
+            <div class="kpi-icon">💰</div>
+          </div>
+          <div class="kpi-value">R$ 458.900</div>
+          <div class="kpi-sub">▲ 78% Plano Premium</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>STREAMS HOJE</span>
+            <div class="kpi-icon">🎧</div>
+          </div>
+          <div class="kpi-value">1,84 M</div>
+          <div class="kpi-sub">▲ +8% em relação a ontem</div>
+        </div>
+      </div>
+
+      <!-- SEÇÃO 1: GERENCIAR ARTISTAS -->
+      <div class="section-card" id="sec-artistas">
+        <div class="section-header-flex">
+          <h2 class="section-title">Gerenciamento de Artistas</h2>
+          <button class="btn-add" onclick="openModal('modalAddArtista')">
+            <span>＋</span> Adicionar Artista
+          </button>
+        </div>
+
+        <div class="table-container">
+          <table class="adm-table">
+            <thead>
+              <tr>
+                <th>ARTISTA</th>
+                <th>GÊNERO</th>
+                <th>SELO VERIFICADO</th>
+                <th>REPRODUÇÕES</th>
+                <th>AÇÕES</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaArtistas">
+              <tr>
+                <td>
+                  <div class="table-item-cell">
+                    <img src="Imagens/artistas/40.png" class="table-thumb" alt="Artista">
+                    <span>Grupo Menos É Mais</span>
+                  </div>
+                </td>
+                <td>Pagode</td>
+                <td><span class="badge-verified">✓ Verificado</span></td>
+                <td>4.5M / mês</td>
+                <td>
+                  <button class="btn-delete" onclick="removeArtista(this)">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-item-cell">
+                    <img src="Imagens/artistas/37.png" class="table-thumb" alt="Artista">
+                    <span>IZA</span>
+                  </div>
+                </td>
+                <td>Pop / R&B</td>
+                <td><span class="badge-verified">✓ Verificado</span></td>
+                <td>3.2M / mês</td>
+                <td>
+                  <button class="btn-delete" onclick="removeArtista(this)">Remover</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SEÇÃO 2: GERENCIAR USUÁRIOS -->
+      <div class="section-card" id="sec-usuarios">
+        <div class="section-header-flex">
+          <h2 class="section-title">Gerenciamento de Usuários</h2>
+          <button class="btn-add" onclick="openModal('modalAddUsuario')">
+            <span>＋</span> Adicionar Usuário
+          </button>
+        </div>
+
+        <div class="table-container">
+          <table class="adm-table">
+            <thead>
+              <tr>
+                <th>NOME DO USUÁRIO</th>
+                <th>E-MAIL</th>
+                <th>PLANO</th>
+                <th>CADASTRO</th>
+                <th>AÇÕES</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaUsuarios">
+              <tr>
+                <td>
+                  <div class="table-item-cell">
+                    <img src="Imagens/user_icon.png" class="table-thumb" alt="User">
+                    <span>Lucas Silva</span>
+                  </div>
+                </td>
+                <td>lucas.silva@email.com</td>
+                <td><span class="status-pill premium">Premium</span></td>
+                <td>12/01/2026</td>
+                <td>
+                  <button class="btn-delete" onclick="removeUsuario(this)">Remover</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-item-cell">
+                    <img src="Imagens/user_icon.png" class="table-thumb" alt="User">
+                    <span>Mariana Costa</span>
+                  </div>
+                </td>
+                <td>mari.costa@email.com</td>
+                <td><span class="status-pill free">Grátis</span></td>
+                <td>05/03/2026</td>
+                <td>
+                  <button class="btn-delete" onclick="removeUsuario(this)">Remover</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- MENU LATERAL DIREITO (LOGS DO SISTEMA) -->
+  <aside class="sidebar-right" id="sidebarRight" onclick="handleRightSidebarClick(event)">
+    <div class="music-collapsed-view">
+      <div class="music-collapsed-btn">&lt;</div>
+    </div>
+
+    <div class="music-expanded-content">
+      <div class="sidebar-right-header">
+        <button class="back-btn-right" onclick="collapseSidebarRight(event)">&gt;</button>
+        <h2 class="sidebar-right-title">Logs do Sistema</h2>
+      </div>
+
+      <div class="logs-list" id="logsContainer">
+        <div class="log-item success">
+          <div class="log-time">Agora</div>
+          <div class="log-title">Painel Iniciado</div>
+          <div class="log-desc">Sessão de administração pronta para uso.</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MODAL: ADICIONAR ARTISTA -->
+  <div class="modal-overlay" id="modalAddArtista">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Cadastrar Novo Artista</h3>
+        <button class="close-modal-btn" onclick="closeModal('modalAddArtista')">&times;</button>
+      </div>
+      <form onsubmit="addArtista(event)">
+        <div class="form-group">
+          <label>Nome do Artista / Banda</label>
+          <input type="text" id="artistName" class="form-control" placeholder="Ex: Thiaguinho" required>
+        </div>
+        <div class="form-group">
+          <label>Gênero Musical Principal</label>
+          <input type="text" id="artistGenre" class="form-control" placeholder="Ex: Pagode, Sertanejo, Pop" required>
+        </div>
+        <div class="form-group">
+          <label>Conceder Selo de Verificado?</label>
+          <select id="artistVerified" class="form-control">
+            <option value="Sim">Sim (Verificado)</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="closeModal('modalAddArtista')">Cancelar</button>
+          <button type="submit" class="btn-submit">Salvar Artista</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADICIONAR USUÁRIO -->
+  <div class="modal-overlay" id="modalAddUsuario">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Cadastrar Novo Usuário</h3>
+        <button class="close-modal-btn" onclick="closeModal('modalAddUsuario')">&times;</button>
+      </div>
+      <form onsubmit="addUsuario(event)">
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input type="text" id="userName" class="form-control" placeholder="Ex: João Souza" required>
+        </div>
+        <div class="form-group">
+          <label>E-mail do Usuário</label>
+          <input type="email" id="userEmail" class="form-control" placeholder="joao@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Plano Inicial</label>
+          <select id="userPlan" class="form-control">
+            <option value="Premium">Premium</option>
+            <option value="Grátis">Grátis</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="closeModal('modalAddUsuario')">Cancelar</button>
+          <button type="submit" class="btn-submit">Salvar Usuário</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT DE INTERATIVIDADE -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarLeft = document.getElementById('sidebarLeft');
+      const sidebarRight = document.getElementById('sidebarRight');
+      const toggleIconLeft = document.getElementById('toggleIconLeft');
+
+      sidebarLeft.classList.remove('expanded');
+      sidebarRight.classList.remove('expanded');
+
+      if (toggleIconLeft) {
+        toggleIconLeft.textContent = '>';
+      }
+    });
+
+    function toggleSidebarLeft() {
+      const sidebarLeft = document.getElementById('sidebarLeft');
+      const toggleIcon = document.getElementById('toggleIconLeft');
+
+      sidebarLeft.classList.toggle('expanded');
+      toggleIcon.textContent = sidebarLeft.classList.contains('expanded') ? '<' : '>';
+    }
+
+    function handleRightSidebarClick(event) {
+      const sidebarRight = document.getElementById('sidebarRight');
+      if (!sidebarRight.classList.contains('expanded')) {
+        sidebarRight.classList.add('expanded');
+      }
+    }
+
+    function collapseSidebarRight(event) {
+      event.stopPropagation();
+      document.getElementById('sidebarRight').classList.remove('expanded');
+    }
+
+    /* CONTROLE DOS MODAIS */
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    /* FUNÇÃO DE REGISTRO DE LOGS */
+    function addLog(title, desc, type = 'success') {
+      const container = document.getElementById('logsContainer');
+      const logDiv = document.createElement('div');
+      logDiv.className = `log-item ${type}`;
+      logDiv.innerHTML = `
+        <div class="log-time">Agora</div>
+        <div class="log-title">${title}</div>
+        <div class="log-desc">${desc}</div>
+      `;
+      container.prepend(logDiv);
+    }
+
+    /* FUNÇÕES: ADICIONAR E REMOVER ARTISTA */
+    function addArtista(event) {
+      event.preventDefault();
+      const name = document.getElementById('artistName').value;
+      const genre = document.getElementById('artistGenre').value;
+      const verified = document.getElementById('artistVerified').value;
+
+      const tabela = document.getElementById('tabelaArtistas');
+      const newRow = document.createElement('tr');
+
+      const verifiedBadge = verified === 'Sim' ? '<span class="badge-verified">✓ Verificado</span>' : '<span style="color:#94a3b8; font-size:12px;">Não</span>';
+
+      newRow.innerHTML = `
+        <td>
+          <div class="table-item-cell">
+            <img src="Imagens/artistas/40.png" class="table-thumb" alt="Artista">
+            <span>${name}</span>
+          </div>
+        </td>
+        <td>${genre}</td>
+        <td>${verifiedBadge}</td>
+        <td>0 / mês</td>
+        <td>
+          <button class="btn-delete" onclick="removeArtista(this)">Remover</button>
+        </td>
+      `;
+
+      tabela.appendChild(newRow);
+      closeModal('modalAddArtista');
+      event.target.reset();
+
+      addLog('Artista Adicionado', `O artista "${name}" foi cadastrado no catálogo.`);
+    }
+
+    function removeArtista(button) {
+      if (confirm('Tem certeza de que deseja remover este artista do catálogo?')) {
+        const row = button.closest('tr');
+        const artistName = row.querySelector('.table-item-cell span').textContent;
+        row.remove();
+
+        addLog('Artista Removido', `O artista "${artistName}" foi excluído.`, 'alert');
+      }
+    }
+
+    /* FUNÇÕES: ADICIONAR E REMOVER USUÁRIO */
+    function addUsuario(event) {
+      event.preventDefault();
+      const name = document.getElementById('userName').value;
+      const email = document.getElementById('userEmail').value;
+      const plan = document.getElementById('userPlan').value;
+
+      const tabela = document.getElementById('tabelaUsuarios');
+      const newRow = document.createElement('tr');
+
+      const planClass = plan === 'Premium' ? 'premium' : 'free';
+      const today = new Date().toLocaleDateString('pt-BR');
+
+      newRow.innerHTML = `
+        <td>
+          <div class="table-item-cell">
+            <img src="Imagens/user_icon.png" class="table-thumb" alt="User">
+            <span>${name}</span>
+          </div>
+        </td>
+        <td>${email}</td>
+        <td><span class="status-pill ${planClass}">${plan}</span></td>
+        <td>${today}</td>
+        <td>
+          <button class="btn-delete" onclick="removeUsuario(this)">Remover</button>
+        </td>
+      `;
+
+      tabela.appendChild(newRow);
+      closeModal('modalAddUsuario');
+      event.target.reset();
+
+      addLog('Usuário Adicionado', `Novo usuário "${name}" (${plan}) foi criado.`);
+    }
+
+    function removeUsuario(button) {
+      if (confirm('Tem certeza de que deseja remover este usuário do sistema?')) {
+        const row = button.closest('tr');
+        const userName = row.querySelector('.table-item-cell span').textContent;
+        row.remove();
+
+        addLog('Usuário Removido', `O usuário "${userName}" foi suspenso/removido.`, 'alert');
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RITMOU - Planos</title>
+  <style>
+    /* RESET BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e293b 0%, #243b8b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      color: #ffffff;
+    }
+
+    /* CABEÇALHO DA PÁGINA */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 18px;
+      color: #93c5fd;
+      font-weight: 500;
+    }
+
+    /* CONTAINER DOS CARDS */
+    .pricing-container {
+      display: flex;
+      gap: 30px;
+      max-width: 900px;
+      width: 100%;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    /* CARD DE PLANO */
+    .plan-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 40px 32px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* CARD EM DESTAQUE (PREMIUM) */
+    .plan-card.featured {
+      background: linear-gradient(180deg, rgba(59, 130, 246, 0.15) 0%, rgba(36, 59, 139, 0.4) 100%);
+      border: 2px solid #4a8bf5;
+      box-shadow: 0 12px 35px rgba(74, 139, 245, 0.25);
+    }
+
+    .plan-card.featured:hover {
+      box-shadow: 0 22px 45px rgba(74, 139, 245, 0.4);
+    }
+
+    /* SELO DE MAIS POPULAR */
+    .badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #10b981;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 6px 18px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+    }
+
+    /* DETALHES DO PLANO */
+    .plan-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .plan-price {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .plan-price .currency {
+      font-size: 22px;
+      font-weight: 600;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+
+    .plan-price .amount {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .plan-price .period {
+      font-size: 14px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    /* LISTA DE RECURSOS */
+    .features-list {
+      list-style: none;
+      margin-bottom: 35px;
+      flex-grow: 1;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: #e2e8f0;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      fill: #10b981;
+      flex-shrink: 0;
+    }
+
+    /* BOTÕES DE AÇÃO */
+    .btn-plan {
+      width: 100%;
+      padding: 16px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+      background-color: #4a8bf5;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(74, 139, 245, 0.4);
+    }
+
+    .btn-primary:hover {
+      background-color: #3b7be3;
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1>Escolha o Plano Ideal para Si</h1>
+    <p>Ouça as suas músicas favoritas sem limites e no seu ritmo.</p>
+  </header>
+
+  <main class="pricing-container">
+
+    <!-- PLANO BÁSICO -->
+    <div class="plan-card">
+      <h2 class="plan-title">Plano Básico</h2>
+      
+      <div class="plan-price">
+        <span class="currency">R$</span>
+        <span class="amount">15,97</span>
+        <span class="period">/ mês</span>
+      </div>
+
+      <ul class="features-list">
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          3 Playlists Disponíveis
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          30 Músicas Por Playlist
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Reprodução por Escolha
+        </li>
+      </ul>
+
+      <a href="UsuárioLogado4.html" class="btn-plan btn-secondary">Escolher Básico</a>
+    </div>
+
+    <!-- PLANO PREMIUM -->
+    <div class="plan-card featured">
+      <span class="badge">Mais Popular</span>
+      
+      <h2 class="plan-title">Plano Premium</h2>
+      
+      <div class="plan-price">
+        <span class="currency">R$</span>
+        <span class="amount">24,97</span>
+        <span class="period">/ mês</span>
+      </div>
+
+      <ul class="features-list">
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          10 Playlists Disponíveis
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Músicas Ilimitadas
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Reprodução por Escolha
+        </li>
+      </ul>
+
+      <a href="UsuárioLogado4.html" class="btn-plan btn-primary">Assinar Premium</a>
+    </div>
+
+  </main>
+
+</body>
+</html>

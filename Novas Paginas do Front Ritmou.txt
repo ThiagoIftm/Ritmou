@@ -3,6 +3,8 @@ Novas Paginas do Front Ritmou:
 PlaylistsUsuario9.html
 Genero14.html
 PlanosUsuário7.html
-AdmLogado6.html
+AdmLogado15.html
+RecuperarSenha5.html
+PlaylistUs6.html
 
 Criar a pagina Recuperar Senha. Adicionar botão na pagina entrar
