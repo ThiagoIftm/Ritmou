@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RITMOU - Playlist Pagode</title>
+  <style>
+    /* RESET DE ESTILOS E FIXAÇÃO DE ROLAGEM GLOBAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background-color: #e2e8f0;
+    }
+
+    /* ==================== CABEÇALHO (225PX) ==================== */
+    .header {
+      width: 100%;
+      height: 225px;
+      background-color: #243b8b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      min-width: 225px;
+    }
+
+    .logo-circle-wrapper {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .search-row {
+      display: flex;
+      align-items: center;
+      gap: 22.5px;
+    }
+
+    .home-btn {
+      width: 72px;
+      height: 72px;
+      background-color: #4a8bf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+      transition: background-color 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #3b7be3;
+    }
+
+    .home-icon {
+      width: 39px;
+      height: 39px;
+      fill: #ffffff;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      width: 510px;
+      height: 72px;
+      background-color: #4a8bf5;
+      border-radius: 36px;
+      padding: 0 27px;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+    }
+
+    .search-icon {
+      width: 33px;
+      height: 33px;
+      fill: #ffffff;
+      margin-right: 18px;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #ffffff;
+      font-size: 22.5px;
+      font-weight: 600;
+    }
+
+    .search-input::placeholder {
+      color: #ffffff;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .nav-btn {
+      background-color: #4a8bf5;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 10px 30px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 225px;
+    }
+
+    .profile-link {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .profile-link:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==================== MENU LATERAL ESQUERDO ==================== */
+    .sidebar-left {
+      position: fixed;
+      top: 345px;
+      left: 0;
+      bottom: 0;
+      width: 115px;
+      background-color: #243b8b;
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-x: hidden;
+      border-radius: 0 16px 0 0;
+      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-left.expanded {
+      width: 280px;
+      align-items: flex-start;
+      padding: 24px 18px;
+    }
+
+    .sidebar-toggle-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      white-space: nowrap;
+    }
+
+    .sidebar-left.expanded .sidebar-toggle-btn {
+      justify-content: flex-start;
+    }
+
+    .toggle-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .sidebar-title-text {
+      display: none;
+    }
+
+    .sidebar-left.expanded .sidebar-title-text {
+      display: inline;
+    }
+
+    .playlist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .sidebar-left.expanded .playlist-list {
+      align-items: flex-start;
+    }
+
+    .playlist-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .sidebar-left.expanded .playlist-item {
+      justify-content: flex-start;
+    }
+
+    .playlist-thumb {
+      width: 55px;
+      height: 55px;
+      border-radius: 12px;
+      object-fit: cover;
+      background-color: #4a8bf5;
+      flex-shrink: 0;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .playlist-item:hover .playlist-thumb {
+      transform: scale(1.05);
+    }
+
+    .playlist-name {
+      display: none;
+      font-size: 18px;
+    }
+
+    .sidebar-left.expanded .playlist-name {
+      display: inline;
+    }
+
+    /* ==================== CONTEÚDO PRINCIPAL ==================== */
+    .main-content {
+      position: fixed;
+      top: 345px;
+      bottom: 0;
+      left: 240px;
+      right: 300px;
+      overflow-y: auto;
+      padding: 10px 40px 0 40px; /* Padding inferior zerado para o container estender até o fim */
+      display: flex;
+      flex-direction: column;
+
+      /* Oculta a barra de rolagem */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* PRIMEIRA CAIXA (HERO DA PLAYLIST) */
+    .playlist-hero {
+      position: relative;
+      z-index: 2;
+      background-color: #243b8b;
+      border-radius: 20px;
+      padding: 0 30px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+      color: #ffffff;
+      height: 200px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* CAPA QUADRADA NA BORDA ESQUERDA */
+    .playlist-hero-cover {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px 0 0 20px;
+      flex-shrink: 0;
+    }
+
+    .playlist-hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 0;
+    }
+
+    .playlist-label {
+      font-size: 18px;
+      font-weight: 600;
+      color: #a5b4fc;
+    }
+
+    .playlist-title {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .playlist-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 5px;
+    }
+
+    .play-hero-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #4a8bf5;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .play-hero-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .play-hero-icon {
+      width: 22px;
+      height: 22px;
+      fill: #ffffff;
+      margin-left: 3px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+    }
+
+    .shuffle-icon {
+      width: 28px;
+      height: 28px;
+      fill: #ffffff;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .shuffle-icon:hover {
+      opacity: 1;
+    }
+
+    .delete-playlist-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .delete-playlist-btn:hover {
+      opacity: 1;
+    }
+
+    .minus-circle-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    /* SEGUNDA CAIXA (ESTENDIDA ATÉ O FINAL) */
+    .tracklist-container {
+      position: relative;
+      z-index: 1;
+      background-color: #223555;
+      border-radius: 20px 20px 0 0;
+      margin-top: -100px;
+      padding: 120px 30px 60px 30px;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+      color: #ffffff;
+      flex-grow: 1;
+      flex-shrink: 0;
+      min-height: calc(100% - 100px);
+    }
+
+    .track-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .track-table th {
+      padding: 12px 15px;
+      font-size: 18px;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+    }
+
+    .track-table td {
+      padding: 14px 15px;
+      font-size: 16px;
+      vertical-align: middle;
+    }
+
+    .track-row {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background-color 0.2s;
+      cursor: pointer;
+    }
+
+    .track-row:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .track-index {
+      font-weight: 700;
+      font-size: 18px;
+      width: 40px;
+    }
+
+    .track-title-cell {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .track-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .track-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .track-name {
+      font-weight: 700;
+      font-size: 16px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .track-name:hover {
+      text-decoration: underline;
+    }
+
+    .track-artist {
+      font-size: 13px;
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    .track-artist:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    .track-time {
+      font-weight: 600;
+      color: #ffffff;
+      width: 80px;
+    }
+
+    .track-album {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .album-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .album-link:hover {
+      text-decoration: underline;
+    }
+
+    .clock-icon {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      vertical-align: middle;
+    }
+
+    /* ==================== MENU LATERAL DIREITO ==================== */
+    .sidebar-right {
+      position: fixed;
+      top: 345px;
+      right: 0;
+      bottom: 0;
+      width: 90px;
+      background-color: #243b8b;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ffffff;
+      z-index: 100;
+      cursor: pointer;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      border-radius: 16px 0 0 0;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-right.expanded {
+      width: 350px;
+      padding: 20px;
+      cursor: default;
+      align-items: stretch;
+    }
+
+    .music-collapsed-view {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .music-collapsed-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .sidebar-right.expanded .music-collapsed-view {
+      display: none;
+    }
+
+    .music-expanded-content {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .sidebar-right.expanded .music-expanded-content {
+      display: flex;
+    }
+
+    .sidebar-right-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .back-btn-right {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-right-title {
+      font-size: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .music-cover-container {
+      width: 100%;
+      height: 330px;
+      background-color: #4a8bf5;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.3);
+      flex-shrink: 0;
+    }
+
+    .music-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .time-bar-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .time-bar-line {
+      flex: 1;
+      height: 3px;
+      background-color: #ffffff;
+      position: relative;
+    }
+
+    .time-bar-line::before,
+    .time-bar-line::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      width: 2px;
+      height: 11px;
+      background-color: #ffffff;
+    }
+
+    .time-bar-line::before { left: 0; }
+    .time-bar-line::after { right: 0; }
+
+    .time-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .music-info-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .music-text .music-name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .music-text .artist-name-sub {
+      font-size: 15px;
+      color: #cbd5e1;
+    }
+
+    .btn-add-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #4a8bf5;
+      color: #ffffff;
+      border: none;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .artist-card-box {
+      background-color: #4a8bf5;
+      border-radius: 16px;
+      padding: 30px 18px;
+      margin-top: 30px;
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .artist-card-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .artist-avatar-mini {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid #ffffff;
+      overflow: hidden;
+    }
+
+    .artist-card-name {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .artist-card-bio {
+      font-size: 14px;
+      line-height: 1.35;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-circle-wrapper">
+        <img src="Imagens/LogoRitmou.png" alt="Logo RITMOU" class="logo-img">
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="search-row">
+        <a href="UsuárioLogado4.html" class="home-btn" title="Início">
+          <svg class="home-icon" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+        </a>
+
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" class="search-input" placeholder="O que deseja ouvir?">
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="UsuárioMsP8.html">
+          <button class="nav-btn">MÚSICAS</button>
+        </a>
+        <a href="PlaylistsUsuario16.html">
+          <button class="nav-btn">PLAYLISTS</button>
+        </a>        
+      </div>
+    </div>
+
+    <div class="header-right">
+      <a href="UsuárioInfo13.html" class="profile-link" title="Perfil do Usuário">
+        <img src="Imagens/user_icon.png" alt="Foto Perfil" class="profile-img">
+      </a>
+    </div>
+  </header>
+
+  <!-- MENU LATERAL ESQUERDO (Inicia Expandido) -->
+  <aside class="sidebar-left expanded" id="sidebarLeft">
+    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()">
+      <div class="toggle-icon-circle" id="toggleIconLeft">&lt;</div>
+      <span class="sidebar-title-text">Sua Biblioteca</span>
+    </button>
+
+    <div class="playlist-list">
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/35.png" alt="Playlist 1" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 1</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/38.png" alt="Playlist 2" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 2</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/37.png" alt="Playlist 3" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 3</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/36.png" alt="Playlist 4" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 4</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/29.png" alt="Playlist 5" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 5</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/39.png" alt="Playlist 6" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 6</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ÁREA CENTRAL DA PÁGINA -->
+  <main class="main-content" id="mainContent">
+
+    <!-- PRIMEIRA CAIXA (HERO DA PLAYLIST) -->
+    <section class="playlist-hero">
+      <img src="Imagens/artistas/3.png" alt="Capa Playlist Pagode" class="playlist-hero-cover">
+      
+      <div class="playlist-hero-info">
+        <span class="playlist-label">Gênero</span>
+        <h1 class="playlist-title">Pagode</h1>
+        <div class="playlist-actions">
+          <button class="play-hero-btn" title="Tocar Playlist">
+            <svg class="play-hero-icon" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+          <button class="action-icon-btn" title="Ordem Aleatória">
+            <svg class="shuffle-icon" viewBox="0 0 24 24">
+              <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.45 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
+            </svg>
+          </button>
+          <button class="delete-playlist-btn">
+            <span class="minus-circle-icon">-</span>
+            Apagar Playlist
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGUNDA CAIXA (ESTENDIDA ATÉ O FINAL) -->
+    <section class="tracklist-container">
+      <table class="track-table">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th>Título</th>
+            <th style="width: 100px;">
+              <svg class="clock-icon" viewBox="0 0 24 24">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+              </svg>
+            </th>
+            <th>Álbum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- MÚSICA 1 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">1</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/29.png" alt="Deixa Alagar" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Deixa Alagar</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Revelação</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">3:43</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">O Bom Samba Continua</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 2 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">2</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/28.png" alt="Nosso Amor Quer Paz" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Nosso Amor Quer Paz</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Péricles</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">2:54</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Pagode do Pericão II</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 3 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">3</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/27.png" alt="Deixa Acontecer" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Deixa Acontecer</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Revelação</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">4:20</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Ao Vivo - Na Palma da Mão</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 4 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">4</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/26.png" alt="Pedindo a Conta" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Pedindo a Conta</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Turma do Pagode, Zeca Pagodinho</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">3:25</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Ao Vivo - Na Palma da Mão</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 5 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">5</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/7.png" alt="Distrimia" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Distrimia</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Casuarina</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">3:03</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Roda de Samba do Casuarina e Convidados</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 6 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">6</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/13.png" alt="Pela Última Vez - Ao Vivo" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Pela Última Vez - Ao Vivo</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Menos é Mais</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">2:42</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Pela Última Vez (Ao Vivo)</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 7 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">7</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/41.png" alt="Lapada Dela" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Lapada Dela</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Menos é Mais, Matheus & Kauan</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">2:50</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Confusão de Calango</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 8 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">8</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/42.png" alt="Falta de Atenção" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Falta Você</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Thiaguinho</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">3:12</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Tardezinha</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 9 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">9</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/43.png" alt="Péssimo Negócio" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Péssimo Negócio</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Dilsinho</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">3:01</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Terra do Nunca</a>
+            </td>
+          </tr>
+
+          <!-- MÚSICA 10 -->
+          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
+            <td class="track-index">10</td>
+            <td>
+              <div class="track-title-cell">
+                <img src="Imagens/artistas/44.png" alt="Invocada" class="track-thumb">
+                <div class="track-details">
+                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Invocada</a>
+                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Ludmilla, Léo Santana</a>
+                </div>
+              </div>
+            </td>
+            <td class="track-time">2:40</td>
+            <td class="track-album">
+              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Hello Mundo</a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- ÁREA DE MÚSICA DIREITA (Inicia Expandido) -->
+  <aside class="sidebar-right expanded" id="sidebarRight" onclick="handleRightSidebarClick(event)">
+    <div class="music-collapsed-view">
+      <div class="music-collapsed-btn">&lt;</div>
+    </div>
+
+    <div class="music-expanded-content">
+      <div class="sidebar-right-header">
+        <button class="back-btn-right" onclick="collapseSidebarRight(event)">&gt;</button>
+        <h2 class="sidebar-right-title">Discoteca</h2>
+      </div>
+
+      <div class="music-cover-container">
+        <a href="TelaArtista12.html">
+          <img src="Imagens/artistas/40.png" alt="Capa da Música" class="music-cover">
+        </a>
+      </div>
+
+      <!-- BARRA DE TEMPO DA MÚSICA -->
+      <div class="time-bar-container">
+        <div class="time-bar-line"></div>
+        <span class="time-text">0:00</span>
+      </div>
+
+      <div class="music-info-row">
+        <div class="music-text">
+          
+            <h3 class="music-name">Coração Partido</h3>                    
+          <a href="TelaArtista12.html">
+            <p class="artist-name-sub">Grupo Menos É Mais</p>
+          </a>          
+        </div>
+        <button class="btn-add-circle" title="Adicionar">+</button>
+      </div>
+
+      <div class="artist-card-box">
+        <h4 class="artist-card-title">Sobre o Artista</h4>
+        <div class="artist-avatar-mini">
+          <a href="TelaArtista12.html">
+            <img src="Imagens/artistas/11.png" alt="Artista Mini" style="width:100%;height:100%;object-fit:cover;">
+          </a>
+        </div>
+        <a href="TelaArtista12.html">
+          <h5 class="artist-card-name">Grupo Menos É Mais</h5>
+        </a>
+        <p class="artist-card-bio">
+          Texto Sobre o Artista que traz detalhes da sua trajetória e sucessos.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarLeft = document.getElementById('sidebarLeft');
+      const sidebarRight = document.getElementById('sidebarRight');
+      const toggleIconLeft = document.getElementById('toggleIconLeft');
+
+      sidebarLeft.classList.remove('expanded');
+      sidebarRight.classList.remove('expanded');
+
+      if (toggleIconLeft) {
+        toggleIconLeft.textContent = '>';
+      }
+    });
+
+
+    function toggleSidebarLeft() {
+      const sidebarLeft = document.getElementById('sidebarLeft');
+      const toggleIcon = document.getElementById('toggleIconLeft');
+
+      sidebarLeft.classList.toggle('expanded');
+
+      if (sidebarLeft.classList.contains('expanded')) {
+        toggleIcon.textContent = '<';
+      } else {
+        toggleIcon.textContent = '>';
+      }
+    }
+
+    function handleRightSidebarClick(event) {
+      const sidebarRight = document.getElementById('sidebarRight');
+
+      if (!sidebarRight.classList.contains('expanded')) {
+        sidebarRight.classList.add('expanded');
+      }
+    }
+
+    function collapseSidebarRight(event) {
+      event.stopPropagation();
+      const sidebarRight = document.getElementById('sidebarRight');
+
+      sidebarRight.classList.remove('expanded');
+    }
+  </script>
+
+</body>
+</html>

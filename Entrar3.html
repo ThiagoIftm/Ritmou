@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RITMOU - Entrar</title>
+  <style>
+    /* RESET DE ESTILOS BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      background-color: #243b8b;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* ==================== PAINEL ESQUERDO (LOGO DA MARCA) ==================== */
+    .left-panel {
+      flex: 1;
+      background-color: #f4f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .main-logo-img {
+      width: 85%;
+      max-width: 750px;
+      max-height: 80vh;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    /* ==================== PAINEL DIREITO (FORMULÁRIO DE LOGIN) ==================== */
+    .right-panel {
+      flex: 1.3;
+      background-color: #243b8b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 60px;
+      color: #ffffff;
+    }
+
+    /* CABEÇALHO DO FORMULÁRIO */
+    .form-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .mini-logo-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #326fdb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.35);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .mini-logo-img {
+      width: 135px;
+      height: 135px;
+      object-fit: contain;
+    }
+
+    .welcome-title {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .welcome-subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: #d1d5db;
+      margin-top: 4px;
+    }
+
+    /* ESTRUTURA DO FORMULÁRIO DE LOGIN */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 50px; /* Espaçamento vertical aumentado entre os campos */
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 62px;
+      background-color: #4a8bf5;
+      border: none;
+      border-radius: 31px;
+      padding: 0 28px;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      outline: none;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s ease;
+    }
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+
+    .form-input:focus {
+      background-color: #3b7be3;
+    }
+
+    /* ÍCONE DE MOSTRAR/OCULTAR SENHA */
+    .input-icon-btn {
+      position: absolute;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .input-icon {
+      width: 22px;
+      height: 22px;
+      fill: #ffffff;
+      opacity: 0.95;
+    }
+
+    /* BOTÃO ENTRAR */
+    .submit-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .btn-submit {
+      background-color: #4a8bf5;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 14px 58px;
+      border-radius: 28px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #3b7be3;
+      transform: scale(1.02);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.75;
+      cursor: wait;
+      transform: none;
+    }
+
+    /* RODAPÉ DO FORMULÁRIO */
+    .footer-text {
+      margin-top: 22px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .register-link {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    .register-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- PAINEL ESQUERDO DA LOGO DA MARCA -->
+    <main class="left-panel">
+      <img src="Imagens/LogoRitmou.png" alt="Logo RITMOU" class="main-logo-img">
+    </main>
+
+    <!-- PAINEL DIREITO DO FORMULÁRIO DE LOGIN -->
+    <aside class="right-panel">
+      
+      <div class="form-header">
+        <div class="mini-logo-circle">
+          <img src="Imagens/LogoRitmou.png" alt="Mini Logo" class="mini-logo-img">
+        </div>
+        <h2 class="welcome-title">Bem Vindo!</h2>
+        <p class="welcome-subtitle">Acesse sua Conta!</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        
+        <!-- EMAIL / USUÁRIO -->
+        <div class="form-group">
+          <label class="form-label" for="loginInput">Email / Usuário</label>
+          <div class="input-wrapper">
+            <input type="text" id="loginInput" class="form-input" placeholder="Digite seu Email ou Nome de Usuario aqui" required>
+          </div>
+        </div>
+
+        <!-- SENHA -->
+        <div class="form-group">
+          <label class="form-label" for="senhaInput">Senha</label>
+          <div class="input-wrapper">
+            <input type="password" id="senhaInput" class="form-input" placeholder="Digite sua senha aqui" required>
+            <button type="button" class="input-icon-btn" onclick="toggleSenha()" title="Mostrar/Ocultar Senha">
+              <svg class="input-icon" viewBox="0 0 24 24">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- BOTÃO DE SUBMIT E LINK DE REGISTRO -->
+        <div class="submit-container">
+          <button type="submit" id="submitBtn" class="btn-submit">Entrar</button>
+          <p class="footer-text">Novo Por Aqui? <a href="Cadastrar2.html" class="register-link">Registre - se</a></p>
+        </div>
+
+      </form>
+
+    </aside>
+  </div>
+
+  <script>
+    // Alterna a visibilidade da senha
+    function toggleSenha() {
+      const senhaInput = document.getElementById('senhaInput');
+      senhaInput.type = (senhaInput.type === 'password') ? 'text' : 'password';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const userOrEmail = document.getElementById('loginInput').value.trim();
+        const senha = document.getElementById('senhaInput').value;
+
+        // Validação da conta Administrador
+        const isAdminUser = (userOrEmail.toLowerCase() === 'administrador@gmail.com' || userOrEmail.toLowerCase() === 'administrador');
+        const isAdminPass = (senha === 'Adm1234567');
+
+        // Validação da conta Usuário Comum
+        const isNormalUser = (userOrEmail.toLowerCase() === 'usuario@gmail.com' || userOrEmail.toLowerCase() === 'usuario');
+        const isNormalPass = (senha === 'Usuario1234567');
+
+        if (isAdminUser && isAdminPass) {
+          // Desabilita o botão e mostra feedback de carregamento
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Carregando...';
+
+          // Demora 2 segundos (2000 milissegundos) para redirecionar
+          setTimeout(() => {
+            window.location.href = 'AdmLogado14.html';
+          }, 2000);
+
+        } else if (isNormalUser && isNormalPass) {
+          // Desabilita o botão e mostra feedback de carregamento
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Carregando...';
+
+          // Demora 2 segundos (2000 milissegundos) para redirecionar
+          setTimeout(() => {
+            window.location.href = 'UsuárioLogado4.html';
+          }, 2000);
+
+        } else {
+          // Exibe o alerta caso as informações estejam incorretas
+          alert('Usuário não encontrado. Caso não tenha uma conta, Registre-se');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

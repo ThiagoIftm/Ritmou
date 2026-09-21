@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RITMOU - Melhor Eu Ir / Ligando os Fatos</title>
+  <style>
+    /* RESET DE ESTILOS E FIXAÇÃO DE ROLAGEM GLOBAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background-color: #e2e8f0;
+    }
+
+    /* ==================== CABEÇALHO (225PX) ==================== */
+    .header {
+      width: 100%;
+      height: 225px;
+      background-color: #243b8b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      min-width: 225px;
+    }
+
+    .logo-circle-wrapper {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .search-row {
+      display: flex;
+      align-items: center;
+      gap: 22.5px;
+    }
+
+    .home-btn {
+      width: 72px;
+      height: 72px;
+      background-color: #4a8bf5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+      transition: background-color 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #3b7be3;
+    }
+
+    .home-icon {
+      width: 39px;
+      height: 39px;
+      fill: #ffffff;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      width: 510px;
+      height: 72px;
+      background-color: #4a8bf5;
+      border-radius: 36px;
+      padding: 0 27px;
+      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+    }
+
+    .search-icon {
+      width: 33px;
+      height: 33px;
+      fill: #ffffff;
+      margin-right: 18px;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #ffffff;
+      font-size: 22.5px;
+      font-weight: 600;
+    }
+
+    .search-input::placeholder {
+      color: #ffffff;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .nav-btn {
+      background-color: #4a8bf5;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 10px 30px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 225px;
+    }
+
+    .profile-link {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .profile-link:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==================== MENU LATERAL ESQUERDO ==================== */
+    .sidebar-left {
+      position: fixed;
+      top: 345px;
+      left: 0;
+      bottom: 0;
+      width: 115px;
+      background-color: #243b8b;
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-x: hidden;
+      border-radius: 0 16px 0 0;
+      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-left.expanded {
+      width: 280px;
+      align-items: flex-start;
+      padding: 24px 18px;
+    }
+
+    .sidebar-toggle-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      white-space: nowrap;
+    }
+
+    .sidebar-left.expanded .sidebar-toggle-btn {
+      justify-content: flex-start;
+    }
+
+    .toggle-icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .sidebar-title-text {
+      display: none;
+    }
+
+    .sidebar-left.expanded .sidebar-title-text {
+      display: inline;
+    }
+
+    /* CLASSE QUE CONTROLA A DISTÂNCIA ENTRE AS PLAYLISTS */
+    .playlist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 60px; /* <--- EDITE AQUI SE QUISER ALTERAR O ESPAÇAMENTO */
+      width: 100%;
+      align-items: center;
+    }
+
+    .sidebar-left.expanded .playlist-list {
+      align-items: flex-start;
+    }
+
+    .playlist-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .sidebar-left.expanded .playlist-item {
+      justify-content: flex-start;
+    }
+
+    .playlist-thumb {
+      width: 55px;
+      height: 55px;
+      border-radius: 12px;
+      object-fit: cover;
+      background-color: #4a8bf5;
+      flex-shrink: 0;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .playlist-item:hover .playlist-thumb {
+      transform: scale(1.05);
+    }
+
+    .playlist-name {
+      display: none;
+      font-size: 18px;
+    }
+
+    .sidebar-left.expanded .playlist-name {
+      display: inline;
+    }
+
+    /* ==================== CONTEÚDO PRINCIPAL ==================== */
+    .main-content {
+      position: fixed;
+      top: 345px;
+      bottom: 0;
+      left: 240px;
+      right: 310px;
+      overflow-y: auto;
+      padding: 10px 40px 0 40px;
+      display: flex;
+      flex-direction: column;
+
+      /* Oculta a barra de rolagem */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* PRIMEIRA CAIXA (HERO DA MÚSICA) */
+    .song-hero {
+      position: relative;
+      z-index: 2;
+      background-color: #243b8b;
+      border-radius: 20px;
+      padding: 0 30px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+      color: #ffffff;
+      height: 200px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .song-hero-cover {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px 0 0 20px;
+      flex-shrink: 0;
+    }
+
+    .song-hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .song-label {
+      font-size: 18px;
+      font-weight: 600;
+      color: #a5b4fc;
+    }
+
+    .song-title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .song-artist-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .artist-avatar-hero {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .artist-hero-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .artist-hero-name:hover {
+      text-decoration: underline;
+    }
+
+    .play-song-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #4a8bf5;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .play-song-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .play-song-icon {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      margin-left: 2px;
+    }
+
+    /* SEGUNDA CAIXA (DETALHES E LETRA DA MÚSICA - ESTENDIDA) */
+    .song-details-container {
+      position: relative;
+      z-index: 1;
+      background-color: #223555;
+      border-radius: 20px 20px 0 0;
+      margin-top: -100px;
+      padding: 120px 40px 60px 40px;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+      color: #ffffff;
+      flex-grow: 1;
+      flex-shrink: 0;
+      min-height: calc(100% - 100px);
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    /* SEÇÃO DA LETRA (ESQUERDA) */
+    .lyrics-section {
+      flex: 1;
+      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .lyrics-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    /* TAMANHO RESTAURADO PARA 16PX */
+    .lyrics-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #e2e8f0;
+      font-weight: 600;
+      white-space: pre-line;
+    }
+
+    .extra-lyrics {
+      display: none;
+    }
+
+    .show-more-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: left;
+      margin-top: 10px;
+      padding: 0;
+    }
+
+    .show-more-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* SEÇÃO DOS ARTISTAS (DIREITA) */
+    .artists-section {
+      flex: 1;
+      max-width: 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      padding-top: 10px;
+    }
+
+    .artist-item-card {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    /* FOTOS DOS ARTISTAS MANTIDAS EM 2.5x NO RAIO/LARGURA (187.5PX) */
+    .artist-item-avatar {
+      width: 187.5px;
+      height: 187.5px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      flex-shrink: 0;
+    }
+
+    .artist-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .artist-item-label {
+      font-size: 16px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .artist-item-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .artist-item-name:hover {
+      text-decoration: underline;
+    }
+
+    /* ==================== MENU LATERAL DIREITO ==================== */
+    .sidebar-right {
+      position: fixed;
+      top: 345px;
+      right: 0;
+      bottom: 0;
+      width: 90px;
+      background-color: #243b8b;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ffffff;
+      z-index: 100;
+      cursor: pointer;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      border-radius: 16px 0 0 0;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-right.expanded {
+      width: 350px;
+      padding: 20px;
+      cursor: default;
+      align-items: stretch;
+    }
+
+    .music-collapsed-view {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .music-collapsed-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .sidebar-right.expanded .music-collapsed-view {
+      display: none;
+    }
+
+    .music-expanded-content {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .sidebar-right.expanded .music-expanded-content {
+      display: flex;
+    }
+
+    .sidebar-right-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .back-btn-right {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-right-title {
+      font-size: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .music-cover-container {
+      width: 100%;
+      height: 330px;
+      background-color: #4a8bf5;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.3);
+      flex-shrink: 0;
+    }
+
+    .music-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .time-bar-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .time-bar-line {
+      flex: 1;
+      height: 3px;
+      background-color: #ffffff;
+      position: relative;
+    }
+
+    .time-bar-line::before,
+    .time-bar-line::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      width: 2px;
+      height: 11px;
+      background-color: #ffffff;
+    }
+
+    .time-bar-line::before { left: 0; }
+    .time-bar-line::after { right: 0; }
+
+    .time-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .music-info-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .music-text .music-name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .music-text .artist-name-sub {
+      font-size: 15px;
+      color: #cbd5e1;
+    }
+
+    .btn-add-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #4a8bf5;
+      color: #ffffff;
+      border: none;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .artist-card-box {
+      background-color: #4a8bf5;
+      border-radius: 16px;
+      padding: 30px 18px;
+      margin-top: 30px;
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .artist-card-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .artist-avatar-mini {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid #ffffff;
+      overflow: hidden;
+    }
+
+    .artist-card-name {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .artist-card-bio {
+      font-size: 14px;
+      line-height: 1.35;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-circle-wrapper">
+        <img src="Imagens/LogoRitmou.png" alt="Logo RITMOU" class="logo-img">
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="search-row">
+        <a href="UsuárioLogado4.html" class="home-btn" title="Início">
+          <svg class="home-icon" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+        </a>
+
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" class="search-input" placeholder="O que deseja ouvir?">
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="UsuárioMsP8.html">
+          <button class="nav-btn">MÚSICAS</button>
+        </a>
+        <a href="PlaylistsUsuario16.html">
+          <button class="nav-btn">PLAYLISTS</button>
+        </a>        
+      </div>
+    </div>
+
+    <div class="header-right">
+      <a href="UsuárioInfo13.html" class="profile-link" title="Perfil do Usuário">
+        <img src="Imagens/user_icon.png" alt="Foto Perfil" class="profile-img">
+      </a>
+    </div>
+  </header>
+
+  <!-- MENU LATERAL ESQUERDO (Inicia Expandido) -->
+  <aside class="sidebar-left expanded" id="sidebarLeft">
+    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()">
+      <div class="toggle-icon-circle" id="toggleIconLeft">&lt;</div>
+      <span class="sidebar-title-text">Sua Biblioteca</span>
+    </button>
+
+    <div class="playlist-list">
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/35.png" alt="Playlist 1" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 1</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/38.png" alt="Playlist 2" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 2</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/37.png" alt="Playlist 3" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 3</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/36.png" alt="Playlist 4" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 4</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/29.png" alt="Playlist 5" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 5</span>
+      </a>
+      <a href="UsuárioPl9.html" class="playlist-item">
+        <img src="Imagens/artistas/39.png" alt="Playlist 6" class="playlist-thumb">
+        <span class="playlist-name">Nome Playlist 6</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ÁREA CENTRAL DA PÁGINA -->
+  <main class="main-content" id="mainContent">
+
+    <!-- PRIMEIRA CAIXA (HERO DA MÚSICA) -->
+    <section class="song-hero">
+      <img src="Imagens/artistas/12.png" alt="Capa Churrasquinho Menos é Mais" class="song-hero-cover">
+      
+      <div class="song-hero-info">
+        <span class="song-label">Música</span>
+        <h1 class="song-title">Melhor Eu Ir/Ligando os Fatos</h1>
+        
+        <div class="song-artist-row">
+          <img src="Imagens/artistas/12.png" alt="Grupo Menos é Mais" class="artist-avatar-hero">
+          <a href="TelaArtista12.html" class="artist-hero-name">Grupo Menos é Mais</a>
+          
+          <button class="play-song-btn" title="Tocar Música">
+            <svg class="play-song-icon" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGUNDA CAIXA (LETRA E ARTISTAS DA MÚSICA) -->
+    <section class="song-details-container">
+      
+      <!-- ESQUERDA: LETRA -->
+      <div class="lyrics-section">
+        <h2 class="lyrics-title">Letra</h2>
+        <div class="lyrics-text" id="lyricsText">
+Melhor eu ir
+Tudo bem, vai ser melhor só
+Se teve que ser assim
+É que pensando bem nunca existiu nós
+Só eu que pensei na gente
+Demorei pra terminar, dói
+
+Não era só comigo que você ficava
+Foi tão difícil ter que enxergar
+Que tudo isso foi ilusão
+Todo esse tempo eu perdi em vão
+É difícil ter que aceitar
+
+Meu coração, ele não deixa, não
+Se faz de bobo, não tem jeito, não
+Só a vida pode explicar<span id="extraLyrics" class="extra-lyrics">
+
+
+
+Talvez a gente se encontrou na hora errada
+Eu pensando em amor, você pensando em madrugada
+E agora a gente não consegue dizer nada
+Além do quê? Adeus
+
+Talvez a gente se perdeu pelo caminho
+Mesmo do seu lado, eu me sinto tão sozinho
+E agora a gente não consegue dizer nada
+Além do quê? Adeus
+
+Melhor eu ir, tchau!
+Melhor o final
+Melhor assim
+Melhor pra mim e pra você também
+
+Melhor eu ir, tchau!
+Melhor o final
+Melhor assim, assim
+
+Não era só comigo que você ficava
+Foi tão difícil ter que enxergar
+Que tudo isso foi ilusão
+Todo esse tempo eu perdi em vão
+É difícil ter que aceitar
+
+Meu coração, ele não deixa, não
+Se faz de bobo, não tem jeito, não
+Só a vida pode, pode explicar
+
+Talvez a gente se encontrou na hora errada
+Eu pensando em amor, você pensando em madrugada
+E agora a gente não consegue dizer nada
+Eu vim dizer: Adeus
+
+Talvez a gente se perdeu pelo caminho
+Mesmo do teu lado, eu me sinto tão sozinho
+E agora a gente não consegue dizer nada
+Além do quê? Adeus
+
+Melhor eu ir, tchau!
+Melhor o final
+Melhor assim
+Melhor pra mim, pra você também
+
+Melhor eu ir, tchau!
+Melhor o final
+Melhor assim, assim</span>
+        </div>
+        <button class="show-more-btn" id="showMoreBtn" onclick="toggleLyrics()">...Mostrar Mais</button>
+      </div>
+
+      <!-- DIREITA: ARTISTAS -->
+      <div class="artists-section">
+        
+        <!-- ARTISTA 1 -->
+        <div class="artist-item-card">
+          <img src="Imagens/artistas/11.png" alt="Grupo Menos é Mais" class="artist-item-avatar">
+          <div class="artist-item-info">
+            <span class="artist-item-label">Artista(s)</span>
+            <a href="TelaArtista12.html" class="artist-item-name">Grupo Menos é Mais</a>
+          </div>
+        </div>
+
+        <!-- ARTISTA 2 -->
+        <div class="artist-item-card">
+          <img src="Imagens/artistas/9.png" alt="Di Propósito" class="artist-item-avatar">
+          <div class="artist-item-info">
+            <span class="artist-item-label">Artista(s)</span>
+            <a href="TelaArtista12.html" class="artist-item-name">Di Propósito</a>
+          </div>
+        </div>
+
+        <!-- ARTISTA 3 -->
+        <div class="artist-item-card">
+          <img src="Imagens/artistas/8.png" alt="Vou Zuar" class="artist-item-avatar">
+          <div class="artist-item-info">
+            <span class="artist-item-label">Artista(s)</span>
+            <a href="TelaArtista12.html" class="artist-item-name">Vou Zuar</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ÁREA DE MÚSICA DIREITA (Inicia Expandido) -->
+  <aside class="sidebar-right expanded" id="sidebarRight" onclick="handleRightSidebarClick(event)">
+    <div class="music-collapsed-view">
+      <div class="music-collapsed-btn">&lt;</div>
+    </div>
+
+    <div class="music-expanded-content">
+      <div class="sidebar-right-header">
+        <button class="back-btn-right" onclick="collapseSidebarRight(event)">&gt;</button>
+        <h2 class="sidebar-right-title">Discoteca</h2>
+      </div>
+
+      <div class="music-cover-container">
+        <a href="TelaArtista12.html">
+          <img src="Imagens/artistas/40.png" alt="Capa da Música" class="music-cover">
+        </a>
+      </div>
+
+      <!-- BARRA DE TEMPO DA MÚSICA -->
+      <div class="time-bar-container">
+        <div class="time-bar-line"></div>
+        <span class="time-text">0:00</span>
+      </div>
+
+      <div class="music-info-row">
+        <div class="music-text">
+          
+            <h3 class="music-name">Coração Partido</h3>                    
+          <a href="TelaArtista12.html">
+            <p class="artist-name-sub">Grupo Menos É Mais</p>
+          </a>          
+        </div>
+        <button class="btn-add-circle" title="Adicionar">+</button>
+      </div>
+
+      <div class="artist-card-box">
+        <h4 class="artist-card-title">Sobre o Artista</h4>
+        <div class="artist-avatar-mini">
+          <a href="TelaArtista12.html">
+            <img src="Imagens/artistas/11.png" alt="Artista Mini" style="width:100%;height:100%;object-fit:cover;">
+          </a>
+        </div>
+        <a href="TelaArtista12.html">
+          <h5 class="artist-card-name">Grupo Menos É Mais</h5>
+        </a>
+        <p class="artist-card-bio">
+          Texto Sobre o Artista que traz detalhes da sua trajetória e sucessos.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    // INICIALIZADOR: GARANTE QUE AMBOS OS MENUS INICIEM NA FORMA ENCURTADA
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarLeft = document.getElementById('sidebarLeft');
+      const sidebarRight = document.getElementById('sidebarRight');
+      const toggleIconLeft = document.getElementById('toggleIconLeft');
+
+      sidebarLeft.classList.remove('expanded');
+      sidebarRight.classList.remove('expanded');
+
+      if (toggleIconLeft) {
+        toggleIconLeft.textContent = '>';
+      }
+    });
+
+    // CONTROLE DO MENU LATERAL ESQUERDO
+    function toggleSidebarLeft() {
+      const sidebarLeft = document.getElementById('sidebarLeft');
+      const toggleIcon = document.getElementById('toggleIconLeft');
+
+      sidebarLeft.classList.toggle('expanded');
+
+      if (sidebarLeft.classList.contains('expanded')) {
+        toggleIcon.textContent = '<';
+      } else {
+        toggleIcon.textContent = '>';
+      }
+    }
+
+    // CONTROLE DO MENU LATERAL DIREITO
+    function handleRightSidebarClick(event) {
+      const sidebarRight = document.getElementById('sidebarRight');
+
+      if (!sidebarRight.classList.contains('expanded')) {
+        sidebarRight.classList.add('expanded');
+      }
+    }
+
+    function collapseSidebarRight(event) {
+      event.stopPropagation();
+      const sidebarRight = document.getElementById('sidebarRight');
+
+      sidebarRight.classList.remove('expanded');
+    }
+
+    // FUNÇÃO PARA MOSTRAR/OCULTAR A LETRA COMPLETA
+    function toggleLyrics() {
+      const extraLyrics = document.getElementById('extraLyrics');
+      const showMoreBtn = document.getElementById('showMoreBtn');
+
+      if (extraLyrics.style.display === 'inline' || extraLyrics.style.display === 'block') {
+        extraLyrics.style.display = 'none';
+        showMoreBtn.textContent = '...Mostrar Mais';
+      } else {
+        extraLyrics.style.display = 'inline';
+        showMoreBtn.textContent = '...Mostrar Menos';
+      }
+    }
+  </script>
+
+</body>
+</html>
