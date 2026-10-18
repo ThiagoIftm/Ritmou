@@ -14,38 +14,35 @@
     }
 
     body {
-      background-color: #e2e8f0;
+      background-color: #4e6cd8;
       min-height: 100vh;
     }
 
     /* ==================== CABEÇALHO ==================== */
     .header {
       width: 100%;
-      height: 225px;
+      height: 169px;
       background-color: #243b8b;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 3rem;
+      padding: 0 2.25rem;
       position: fixed;
       top: 0;
       left: 0;
       z-index: 1000;
-      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
     }
 
     .header-left {
       display: flex;
       align-items: center;
-      min-width: 225px;
-      transform: translateY(-45px);
+      min-width: 169px;
+      transform: translateY(-34px);
     }
 
-    
-
     .logo-img {
-      width: 78px;
-      height: 78px;
+      width: 59px;
+      height: 59px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -53,23 +50,23 @@
     .header-center {
       position: absolute;
       left: 50%;
-      transform: translate(-50%, -45px);
+      transform: translate(-50%, -34px);
       display: flex;
       align-items: center;
     }
 
     .home-btn {
-      width: 72px;
-      height: 72px;
+      width: 54px;
+      height: 54px;
       background-color: #4a8bf5;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 45px;
+      margin-right: 34px;
       text-decoration: none;
       transition: background-color 0.2s ease;
-      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+      box-shadow: 11px 11px 17px rgba(0, 0, 0, 0.4);
     }
 
     .home-btn:hover {
@@ -77,27 +74,27 @@
     }
 
     .home-icon {
-      width: 39px;
-      height: 39px;
+      width: 29px;
+      height: 29px;
       fill: #ffffff;
     }
 
     .search-box {
       display: flex;
       align-items: center;
-      width: 510px;
-      height: 72px;
+      width: 383px;
+      height: 54px;
       background-color: #4a8bf5;
-      border-radius: 36px;
-      padding: 0 27px;
-      box-shadow: 15px 15px 22.5px rgba(0, 0, 0, 0.4);
+      border-radius: 27px;
+      padding: 0 20px;
+      box-shadow: 11px 11px 17px rgba(0, 0, 0, 0.4);
     }
 
     .search-icon {
-      width: 33px;
-      height: 33px;
+      width: 25px;
+      height: 25px;
       fill: #ffffff;
-      margin-right: 18px;
+      margin-right: 14px;
       flex-shrink: 0;
     }
 
@@ -107,7 +104,7 @@
       outline: none;
       background: transparent;
       color: #ffffff;
-      font-size: 22.5px;
+      font-size: 17px;
       font-weight: 600;
     }
 
@@ -120,20 +117,20 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 22.5px;
-      min-width: 225px;
+      gap: 17px;
+      min-width: 169px;
       justify-content: flex-end;
-      transform: translateY(-45px);
+      transform: translateY(-34px);
     }
 
     .btn-auth {
       background-color: #4a8bf5;
       color: #ffffff;
       font-weight: 700;
-      font-size: 21px;
-      letter-spacing: 0.75px;
-      padding: 18px 36px;
-      border-radius: 27px;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      padding: 13px 27px;
+      border-radius: 20px;
       border: none;
       cursor: pointer;
       text-decoration: none;
@@ -148,17 +145,16 @@
     /* ==================== BARRA LATERAL ==================== */
     .sidebar {
       position: fixed;
-      top: 345px;
+      top: 150px;
       left: 0;
       bottom: 0;
-      width: 420px;
+      width: 315px;
       background-color: #243b8b;
-      border-radius: 0 30px 0 0;
-      padding: 36px 27px;
+      padding: 27px 20px;
       display: flex;
       flex-direction: column;
-      gap: 36px;
-      box-shadow: 7.5px 0 22.5px rgba(0, 0, 0, 0.3);
+      gap: 27px;
+      box-shadow: 6px 0 17px rgba(0, 0, 0, 0.3);
       z-index: 100;
     }
 
@@ -166,12 +162,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 6px;
+      padding: 0 5px;
     }
 
     .sidebar-title {
       color: #ffffff;
-      font-size: 30px;
+      font-size: 23px;
       font-weight: 700;
     }
 
@@ -179,16 +175,16 @@
     .btn-criar {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 7px;
       background-color: #4a8bf5;
       color: #ffffff;
       font-weight: 700;
-      font-size: 21px;
-      padding: 9px 18px;
-      border-radius: 27px;
+      font-size: 16px;
+      padding: 7px 14px;
+      border-radius: 20px;
       text-decoration: none;
       transition: background-color 0.2s ease, transform 0.1s ease;
-      box-shadow: 7.5px 7.5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 6px 6px 11px rgba(0, 0, 0, 0.2);
     }
 
     .btn-criar:hover {
@@ -197,21 +193,21 @@
     }
 
     .plus-icon {
-      width: 27px;
-      height: 27px;
+      width: 20px;
+      height: 20px;
       fill: #ffffff;
     }
 
     .card-playlist {
       background-color: #4a8bf5;
-      border-radius: 30px;
-      padding: 36px 30px;
+      border-radius: 22px;
+      padding: 27px 22px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 11px;
       text-decoration: none;
       cursor: pointer;
-      box-shadow: 7.5px 7.5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 6px 6px 11px rgba(0, 0, 0, 0.2);
       transition: background-color 0.2s ease, transform 0.2s ease;
     }
 
@@ -222,39 +218,39 @@
 
     .card-title {
       color: #ffffff;
-      font-size: 28.5px;
+      font-size: 21px;
       font-weight: 700;
       line-height: 1.25;
     }
 
     .card-subtitle {
       color: #d1d5db;
-      font-size: 22.5px;
+      font-size: 17px;
       font-weight: 600;
     }
 
     /* ==================== CONTEÚDO PRINCIPAL ==================== */
     .main-content {
-      margin-top: 345px;
-      margin-left: 540px;
-      padding-right: 75px;
-      padding-bottom: 90px;
+      margin-top: 259px;
+      margin-left: 405px;
+      padding-right: 56px;
+      padding-bottom: 67px;
       display: flex;
       flex-direction: column;
-      gap: 75px;
+      gap: 56px;
     }
 
     .section-title-box {
       background-color: #243b8b;
       color: #ffffff;
-      font-size: 27px;
+      font-size: 20px;
       font-weight: 700;
-      padding: 12px 36px;
-      border-radius: 18px;
+      padding: 9px 27px;
+      border-radius: 13px;
       display: inline-block;
       width: fit-content;
-      box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
-      margin-bottom: 37.5px;
+      box-shadow: 4px 4px 11px rgba(0, 0, 0, 0.3);
+      margin-bottom: 28px;
       user-select: none;
     }
 
@@ -269,23 +265,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 315px;
+      width: 236px;
     }
 
     .circle-link {
-      width: 315px;
-      height: 315px;
+      width: 203px;
+      height: 203px;
       border-radius: 50%;
       overflow: hidden;
       display: block;
-      box-shadow: 9px 9px 22.5px rgba(0, 0, 0, 0.35);
+      box-shadow: 7px 7px 17px rgba(0, 0, 0, 0.35);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
     }
 
     .circle-link:hover {
       transform: scale(1.05);
-      box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.45);
+      box-shadow: 9px 9px 22px rgba(0, 0, 0, 0.45);
     }
 
     .circle-img {
@@ -299,12 +295,12 @@
       background-color: #243b8b;
       color: #ffffff;
       font-weight: 700;
-      font-size: 24px;
+      font-size: 18px;
       text-align: center;
-      padding: 12px 0;
-      border-radius: 18px;
-      margin-top: 72px;
-      box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+      padding: 9px 0;
+      border-radius: 13px;
+      margin-top: 54px;
+      box-shadow: 4px 4px 11px rgba(0, 0, 0, 0.3);
       user-select: none;
     }
   </style>
@@ -366,25 +362,25 @@
 
       <div class="cards-row">
         <div class="card-item">
-          <a href="TelaArtista12.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/artistas/34.png" alt="Henrique e Juliano" class="circle-img">
           </a>
         </div>
 
         <div class="card-item">
-          <a href="TelaArtista12.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/artistas/33.png" alt="Diego e Victor Hugo" class="circle-img">
           </a>
         </div>
 
         <div class="card-item">
-          <a href="TelaArtista12.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/artistas/32.png" alt="Pau do Pecado" class="circle-img">
           </a>
         </div>
 
         <div class="card-item">
-          <a href="TelaArtista12.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/artistas/31.png" alt="Jorge e Mateus" class="circle-img">
           </a>
         </div>
@@ -397,28 +393,28 @@
 
       <div class="cards-row">
         <div class="card-item">
-          <a href="Genero14.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/generos/pagode.png" alt="Pagode" class="circle-img">
           </a>
           <div class="genre-label-box">Pagode</div>
         </div>
 
         <div class="card-item">
-          <a href="Genero14.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/generos/sertanejo.png" alt="Sertanejo" class="circle-img">
           </a>
           <div class="genre-label-box">Sertanejo</div>
         </div>
 
         <div class="card-item">
-          <a href="Genero14.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/generos/rock.png" alt="Rock" class="circle-img">
           </a>
           <div class="genre-label-box">Rock</div>
         </div>
 
         <div class="card-item">
-          <a href="Genero14.html" class="circle-link">
+          <a href="Entrar3.html" class="circle-link">
             <img src="Imagens/generos/mpb.jpg" alt="MPB" class="circle-img">
           </a>
           <div class="genre-label-box">MPB</div>

@@ -1,0 +1,137 @@
+[
+    {
+        "cod_artista": 0,
+        "nome_artista": "Grupo Menos é Mais",
+        "caminho_logo": "Imagens/artistas/11.png"
+    },
+
+    {
+        "cod_artista": 1,
+        "nome_artista": "Di Propósito",
+        "caminho_logo": "Imagens/artistas/9.png"
+    },
+
+    {
+        "cod_artista": 2,
+        "nome_artista": "Vou Zuar",
+        "caminho_logo": "Imagens/artistas/8.png"
+    },
+
+    {
+        "cod_artista": 3,
+        "nome_artista": "Grupo Revelação",
+        "caminho_logo": "Imagens/artistas/29.png"
+    },
+
+    
+    {
+        "cod_artista": 4,
+        "nome_artista": "Péricles",
+        "caminho_logo": "Imagens/artistas/28.png"
+    },
+
+    {
+        "cod_artista": 5,
+        "nome_artista": "Turma do Pagode",
+        "caminho_logo": "Imagens/artistas/26.png"
+    },
+
+
+    {
+        "cod_artista": 6,
+        "nome_artista": "Bruno & Marrone",
+        "caminho_logo": "Imagens/artistas/25.png"
+    },
+
+    {
+        "cod_artista": 7,
+        "nome_artista": "Zé Neto & Cristiano",
+        "caminho_logo": "Imagens/artistas/23.png"
+    },
+
+
+    {
+        "cod_artista": 8,
+        "nome_artista": "Diego & Victor Hugo",
+        "caminho_logo": "Imagens/artistas/21.png"
+    },
+
+    
+    {
+        "cod_artista": 9,
+        "nome_artista": "Mc Iguinho",
+        "caminho_logo": "Imagens/artistas/19.png"
+    },
+
+    {
+        "cod_artista": 10,
+        "nome_artista": "Dj Orbital",
+        "caminho_logo": "Imagens/artistas/18.png"
+    },
+
+
+    {
+        "cod_artista": 11,
+        "nome_artista": "Mc Ph",
+        "caminho_logo": "Imagens/artistas/16.png"
+    },
+
+
+    {
+        "cod_artista": 12,
+        "nome_artista": "Vanessa da Mata",
+        "caminho_logo": "Imagens/artistas/20.png"
+    },
+
+
+    {
+        "cod_artista": 13,
+        "nome_artista": "Caetano Veloso",
+        "caminho_logo": "Imagens/artistas/10.png"
+    },
+
+
+    {
+        "cod_artista": 14,
+        "nome_artista": "Tiago Iorc",
+        "caminho_logo": "Imagens/artistas/30.png"
+    },
+
+
+    {
+        "cod_artista": 15,
+        "nome_artista": "Ferrugem",
+        "caminho_logo": "Imagens/artistas/45.png"
+    },
+
+
+    {
+        "cod_artista": 16,
+        "nome_artista": "Jorge & Mateus",
+        "caminho_logo": "Imagens/artistas/31.png"
+    },
+
+
+    {
+        "cod_artista": 17,
+        "nome_artista": "Thiaguinho",
+        "caminho_logo": "Imagens/artistas/42.png"
+    },
+
+
+
+    {
+        "cod_artista": 18,
+        "nome_artista": "Dilsinho",
+        "caminho_logo": "Imagens/artistas/43.png"
+    },
+
+
+    {
+        "cod_artista": 19,
+        "nome_artista": "Ludmilla",
+        "caminho_logo": "Imagens/artistas/44.png"
+    }
+
+
+]

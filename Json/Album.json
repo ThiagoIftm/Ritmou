@@ -1,0 +1,25 @@
+[
+    {
+        "cod_album": 0,
+        "nome_album": "Molho (Ao Vivo",
+        "datalancamento_album": [{
+            "ano": 2026,
+            "mes": 4,
+            "dia": 14
+            }
+        ],
+        "musicas": [
+            { "cod_musica": 0 },
+            { "cod_musica": 1 },
+            { "cod_musica": 2 },
+            { "cod_musica": 3 },
+            { "cod_musica": 4 },
+            { "cod_musica": 5 },
+            { "cod_musica": 6 }
+        ],
+        "caminho_logo": "2.png"
+    }
+
+
+    
+]

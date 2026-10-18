@@ -1,0 +1,20 @@
+[
+    {
+        "cod_plano": 0,
+        "valormensal_plano": 0.00,
+        "tipo_plano": "Plano Gratuito"
+    },
+
+    {
+        "cod_plano": 1,
+        "valormensal_plano": 15.97,
+        "tipo_plano": "Plano Básico"
+    },
+
+    {
+        "cod_plano": 2,
+        "valormensal_plano": 24.97,
+        "tipo_plano": "Plano Premium"
+    }
+
+]

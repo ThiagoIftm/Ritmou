@@ -1,0 +1,32 @@
+[
+    {
+        "cod_gen": 0,
+        "nome_gen": "Pagode",
+        "caminho_logo": "Imagens/generos/pagode.png"
+    },
+
+    {
+        "cod_gen": 1,
+        "nome_gen": "Sertanejo",
+        "caminho_logo": "Imagens/generos/sertanejo.png"
+    },
+
+    {
+        "cod_gen": 2,
+        "nome_gen": "Funk",
+        "caminho_logo": "Imagens/generos/pagode.png"
+    },
+
+
+    {
+        "cod_gen": 3,
+        "nome_gen": "MPB",
+        "caminho_logo": "Imagens/generos/mpb.png"
+    },
+
+    {
+        "cod_gen": 4,
+        "nome_gen": "funk",
+        "caminho_logo": "Imagens/generos/funk.png"
+    }
+]
