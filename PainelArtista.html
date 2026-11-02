@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artista - Grupo Menos é Mais</title>
+  <title>RITMOU - Painel Artista</title>
   <link rel="stylesheet" href="style.css">
   
   <style>
@@ -12,7 +12,7 @@
 /* ==================== CONTEÚDO PRINCIPAL (SEM ROLAGEM) ==================== */
     .main-content {
       position: fixed;
-      top: 259px; /* Alinhado perfeitamente com os menus laterais */
+      top: 180px; /* Alinhado perfeitamente com os menus laterais */
       bottom: 0;
       left: 220px; /* Escala de 75% sobre os 270px originais */
       right: 270px; /* Escala de 75% sobre os 330px originais */
@@ -26,9 +26,9 @@
     .artist-hero {
       position: relative;
       z-index: 2;
-      height: 188px;
-      border-radius: 12px 12px 0 0;
-      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 60%), url('Imagens/artistas/6.png');
+      height: 250px;
+      border-radius: 24px 24px 0 0;
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 60%);
       background-size: cover;
       background-position: center 25%;
       display: flex;
@@ -200,9 +200,9 @@
 
     .albums-grid {
       display: flex;
-      justify-content: space-around;
+      grid-template-columns: repeat(4, 1fr);
       align-items: center;
-      gap: 11px;
+      gap: 100px;
       padding: 4px 0;
     }
 
@@ -221,8 +221,8 @@
     }
 
     .album-cover-img {
-      width: 131px;
-      height: 131px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 5px 11px rgba(0, 0, 0, 0.45);
@@ -264,7 +264,7 @@
       </div>
 
       <div class="nav-buttons">
-        <a href="UsuárioMsP8.html">
+        <a href="Musicas.html">
           <button class="nav-btn">MÚSICAS</button>
         </a>
         <a href="BibliotecaUs6.html">
@@ -282,8 +282,7 @@
 
   <!-- MENU LATERAL ESQUERDO -->
   <aside class="sidebar-left" id="sidebarLeft">
-    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()">
-      <div class="toggle-icon-circle" id="toggleIconLeft">&gt;</div>
+    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()"> 
       <span class="sidebar-title-text">Sua Biblioteca</span>
     </button>
 
@@ -315,12 +314,19 @@
     </div>
   </aside>
 
+
+
+
+
+
+  
   <!-- ÁREA CENTRAL DA PÁGINA (TELA DO ARTISTA - SEM SCROLL) -->
   <main class="main-content" id="mainContent">
 
+
     <!-- CAIXA COM IMAGEM DE FUNDO DO ARTISTA -->
-    <section class="artist-hero">
-      <h1 class="artist-hero-name">Grupo Menos é Mais</h1>
+    <section id="artist-hero-section" class="artist-hero">
+      <h1 id="nome-artista-texto" class="artist-hero-name">Carregando...</h1>
     </section>
 
     <!-- CONTAINER DE MÚSICAS POPULARES DO ARTISTA E ÁLBUNS -->
@@ -338,96 +344,25 @@
         <span class="col-plays">Reproduções</span>
       </div>
 
-      <div class="tracklist-body">
-        <!-- Música Populares 1 -->
-        <a href="UsuárioM10.html" class="track-row">
-          <span class="track-num">1</span>
-          <img src="Imagens/artistas/32.png" alt="Capa P de Pecado" class="track-img-icon">
-          <div class="track-info">
-            <span class="track-title">P de Pecado</span>
-            <span class="track-artist">Grupo Menos é Mais, Simone Mendes</span>
-          </div>
-          <span class="track-duration">3:12</span>
-          <span class="track-plays">###.###</span>
-        </a>
 
-        <!-- Música Populares 2 -->
-        <a href="UsuárioM10.html" class="track-row">
-          <span class="track-num">2</span>
-          <img src="Imagens/artistas/7.png" alt="Capa Pela Última Vez" class="track-img-icon">
-          <div class="track-info">
-            <span class="track-title">Pela Última Vez</span>
-            <span class="track-artist">Grupo Menos é Mais</span>
-          </div>
-          <span class="track-duration">2:42</span>
-          <span class="track-plays">###.###</span>
-        </a>
 
-        <!-- Música Populares 3 -->
-        <a href="UsuárioM10.html" class="track-row">
-          <span class="track-num">3</span>
-          <img src="Imagens/artistas/3.png" alt="Capa Coração Partido" class="track-img-icon">
-          <div class="track-info">
-            <span class="track-title">Coração Partido - Ao Vivo</span>
-            <span class="track-artist">Grupo Menos é Mais</span>
-          </div>
-          <span class="track-duration">3:15</span>
-          <span class="track-plays">###.###</span>
-        </a>
 
-        <!-- Música Populares 4 -->
-        <a href="UsuárioM10.html" class="track-row">
-          <span class="track-num">4</span>
-          <img src="Imagens/artistas/49.png" alt="Capa Bebe e Vem me Procurar" class="track-img-icon">
-          <div class="track-info">
-            <span class="track-title">Bebe e Vem me Procurar</span>
-            <span class="track-artist">Grupo Menos é Mais, Turma do Pagode</span>
-          </div>
-          <span class="track-duration">3:43</span>
-          <span class="track-plays">###.###</span>
-        </a>
-
-        <!-- Música Populares 5 -->
-        <a href="UsuárioM10.html" class="track-row">
-          <span class="track-num">5</span>
-          <img src="Imagens/artistas/2.png" alt="Capa Champanhe" class="track-img-icon">
-          <div class="track-info">
-            <span class="track-title">Champanhe</span>
-            <span class="track-artist">Grupo Menos é Mais</span>
-          </div>
-          <span class="track-duration">3:43</span>
-          <span class="track-plays">###.###</span>
-        </a>
+      <!-- AS 5 MÚSICAS MAIS TOCADAS -->
+      
+      <div id="populares-container" class="tracklist-body">
+      <!-- AS 5 MÚSICAS MAIS TOCADAS SERÃO GERADAS AQUI PELO JS -->
       </div>
+
+
+
 
       <!-- SESSÃO DE ÁLBUNS -->
       <div class="albums-section">
         <div class="albums-badge">Álbuns</div>
 
-        <div class="albums-grid">
-          <!-- Álbum 1 -->
-          <a href="ArtistaAlbum11.html" class="album-card">
-            <img src="Imagens/artistas/2.png" alt="Capa do Álbum 1" class="album-cover-img">
-            <span class="album-name">MOLHO (Ao Vivo)</span>
-          </a>
-
-          <!-- Álbum 2 -->
-          <a href="ArtistaAlbum11.html" class="album-card">
-            <img src="Imagens/artistas/3.png" alt="Capa do Álbum 2" class="album-cover-img">
-            <span class="album-name">Churrasquinho 3 (Ao Vivo)</span>
-          </a>
-
-          <!-- Álbum 3 -->
-          <a href="ArtistaAlbum11.html" class="album-card">
-            <img src="Imagens/artistas/50.png" alt="Capa do Álbum 3" class="album-cover-img">
-            <span class="album-name">Churrasquinho 4 (Ao Vivo)</span>
-          </a>
-
-          <!-- Álbum 4 -->
-          <a href="ArtistaAlbum11.html" class="album-card">
-            <img src="Imagens/artistas/41.png" alt="Capa do Álbum 4" class="album-cover-img">
-            <span class="album-name">Confia (Ao Vivo)</span>
-          </a>
+        <!-- CONTAINER ONDE OS ÁLBUNS SERÃO GERADOS PELO JS -->
+        <div id="albums-container" class="albums-grid">
+            
         </div>
       </div>
 
@@ -435,56 +370,76 @@
 
   </main>
 
-  <!-- MENU LATERAL DIREITO -->
-  <aside class="sidebar-right" id="sidebarRight" onclick="handleRightSidebarClick(event)">
-    <div class="music-collapsed-view">
-      <div class="music-collapsed-btn">&lt;</div>
-    </div>
+    <!-- ÁREA DE MÚSICA DIREITA (Inicia Expandido) -->
+    <aside class="sidebar-right expanded" id="sidebarRight" onclick="handleRightSidebarClick(event)">
+      <div class="music-collapsed-view">
+        <div class="music-collapsed-btn">&lt;</div>
+      </div>
 
-    <div class="music-expanded-content">
-      <div class="sidebar-right-header">
-        <button class="back-btn-right" onclick="collapseSidebarRight(event)">&gt;</button>
+      
+      <div class="sidebar-right-header"> 
         <h2 class="sidebar-right-title">Discoteca</h2>
       </div>
 
+      <!-- Capa da Música -->
       <div class="music-cover-container">
-        <a href="TelaArtista12.html">
-          <img src="Imagens/artistas/40.png" alt="Capa da Música" class="music-cover">
+        <a href="#" id="menu-link-capa">
+          <img src="" alt="Capa da Música" class="music-cover" id="menu-img-capa">
         </a>
       </div>
 
-      <!-- BARRA DE TEMPO DA MÚSICA -->
-      <div class="time-bar-container">
-        <div class="time-bar-line"></div>
-        <span class="time-text">0:00</span>
+      <div class="minimal-player-container">
+        <!-- Barra de Progresso -->
+        <div class="player-progress">
+          <input type="range" id="minimal-progress" min="0" max="100" value="0">
+        </div>
+
+        <!-- Controlos de Reprodução -->
+        <div class="player-controls-bottom">
+          <button class="control-btn prev-btn">
+            <svg viewBox="0 0 24 24" class="icon-skip"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+          </button>
+          <button class="control-btn play-pause-btn">
+            <svg viewBox="0 0 24 24" class="icon-pause"><path d="M8 19h3V5H8v14zm5-14v14h3V5h-3z"/></svg>
+          </button>
+          <button class="control-btn next-btn">
+            <svg viewBox="0 0 24 24" class="icon-skip"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+          </button>
+        </div>
       </div>
 
+      <!-- Informações da Música -->
       <div class="music-info-row">
         <div class="music-text">
-          <h3 class="music-name">Coração Partido</h3>                    
-          <a href="TelaArtista12.html">
-            <p class="artist-name-sub">Grupo Menos É Mais</p>
-          </a>          
+          <!-- Adicionada a tag <a> em volta do nome da música -->
+          <a href="#" id="menu-link-musica" style="text-decoration: none; color: inherit;">
+            <h3 class="music-name" id="menu-nome-musica">Carregando...</h3>
+          </a>
+          <a href="#" id="menu-link-artista-sub">
+            <p class="artist-name-sub" id="menu-nome-artista-sub">Carregando...</p>
+          </a>
         </div>
-        <button class="btn-add-circle" title="Adicionar">+</button>
       </div>
 
+      <!-- Sobre o Artista -->
       <div class="artist-card-box">
         <h4 class="artist-card-title">Sobre o Artista</h4>
         <div class="artist-avatar-mini">
-          <a href="TelaArtista12.html">
-            <img src="Imagens/artistas/11.png" alt="Artista Mini" style="width:100%;height:100%;object-fit:cover;">
+          <a href="#" id="menu-link-artista-mini">
+            <img src="" alt="Artista Mini" style="width:100%;height:100%;object-fit:cover;" id="menu-img-artista">
           </a>
         </div>
-        <a href="TelaArtista12.html">
-          <h5 class="artist-card-name">Grupo Menos É Mais</h5>
+        <a href="#" id="menu-link-artista-card">
+          <h5 class="artist-card-name" id="menu-nome-artista-card">Carregando...</h5>
         </a>
-        <p class="artist-card-bio">
-          Texto Sobre o Artista que traz detalhes da sua trajetória e sucessos.
+        <p class="artist-card-bio" id="menu-bio-artista">
+          <!-- Deixei dinâmico caso queira adicionar a bio no futuro, ou pode manter texto estático -->
+          Acompanhe os sucessos e a trajetória deste artista.
         </p>
       </div>
-    </div>
-  </aside>
+
+      </div>
+    </aside>
 
   <script>
 
@@ -548,6 +503,11 @@
         }
       }
   </script>
+
+
+  <script src="ScriptArtista.js"></script>
+  <script src="ScriptMusicaGlobal.js"></script>
+
 
 </body>
 </html>

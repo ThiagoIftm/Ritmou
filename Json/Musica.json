@@ -1,335 +1,531 @@
 [
     {
-        "cod_musica": 0,
+        "cod_musica": "m0",
         "nome_musc": "Saudade Incoveniente - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "alb0",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Saudade Incoveniente - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/46.png"
+        "caminho_logo": "Imagens/artistas/46.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 20187398  
     },
 
     {
-        "cod_musica": 1,
+        "cod_musica": "m1",
         "nome_musc": "Quebrou a Cara / Quem Ama Não Machuca / Manchete dos Jornais - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "alb0",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Quebrou a Cara ; Quem Ama Não Machuca ; Manchete dos Jornais - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/47.png"
+        "caminho_logo": "Imagens/artistas/47.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 9852230
     },
 
     {
-        "cod_musica": 2,
+        "cod_musica": "m2",
         "nome_musc": "P do Pecado - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "alb0",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/P do Pecado - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/32.png"
+        "caminho_logo": "Imagens/artistas/32.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 504661752
     },
 
     {
-        "cod_musica": 3,
+        "cod_musica": "m3",
         "nome_musc": "Tarde de Mais / Mágica / Oh! Chuva - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "alb0",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Tarde de Mais ; Mágica ; Oh! Chuva - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/48.png"
+        "caminho_logo": "Imagens/artistas/48.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 106112765
     },
 
     {
-        "cod_musica": 4,
+        "cod_musica": "m4",
         "nome_musc": "Champanhe - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "alb0",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Champanhe - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/2.png"
+        "caminho_logo": "Imagens/artistas/2.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 44152728
     },
 
     {
-        "cod_musica": 5,
+        "cod_musica": "m5",
         "nome_musc": "Pela Última Vez - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "alb0",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Pela Última Vez - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/7.png"
+        "caminho_logo": "Imagens/artistas/7.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 266918102
     },
 
     {
-        "cod_musica": 6,
+        "cod_musica": "m6",
         "nome_musc": "Queria Ser Tu / Interfone - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "alb0",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Queria Ser Tu ; Interfone - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/4.png"
+        "caminho_logo": "Imagens/artistas/4.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 38777012
     },
 
 
     {
-        "cod_musica": 7,
+        "cod_musica": "m7",
         "nome_musc": "Deixa Alagar",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 3,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar3"],
+        "letra_musica": "Tô sofrendo de amor\nMas dizendo a verdade\nE agora que eu sou\nMerecedor da tua fidelidade\n\nMas pra ser a mulher\nMais feliz desse mundo\nBasta acreditar\nMeu sentimento é profundo\n\nVai ver\nQue a razão de viver\nTá focada em você\nMeu coração é todo seu\n\nE quando a gente quer\nBasta dizer sim\nEntão volta pra mim\nQue eu tô querendo saciar\nEssa vontade louca\n\nLembro da gente\nSe amando embaixo do chuveiro\nVendo o banheiro inundar\nDeixa alagar! Deixa alagar!\nDeixa alagar! Deixa alagar!\n\nE namorando na cozinha com o feijão no fogo\nA ponto de nos incendiar\nDeixa queimar! Deixa queimar!\nDeixa queimar! Deixa queimar!\n",
         "caminho_arquivo": "Json/Musicas/Deixa Alagar.mp3",
-        "caminho_logo": "Imagens/artistas/29.png"
+        "caminho_logo": "Imagens/artistas/29.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 134818223
     },
 
 
     {
-        "cod_musica": 8,
+        "cod_musica": "m8",
         "nome_musc": "Nosso Amor Quer Paz",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 4,
-        "letra-musica": "letra musica",
+        "cod_album": "alb1",
+        "cod_genero": "g0",
+        "cod_artista": ["ar4"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Nosso Amor Quer Paz.mp3",
-        "caminho_logo": "Imagens/artistas/28.png"
+        "caminho_logo": "Imagens/artistas/28.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 95064919
     },
 
 
 
     {
-        "cod_musica": 9,
+        "cod_musica": "m9",
         "nome_musc": "Pedindo a Conta",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 5,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar5"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Pedindo a Conta.mp3",
-        "caminho_logo": "Imagens/artistas/26.png"
+        "caminho_logo": "Imagens/artistas/26.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 20551301  
     },
 
 
 
     {
-        "cod_musica": 10,
+        "cod_musica": "m10",
         "nome_musc": "Boate Azul",
-        "cod_album": 0,
-        "cod_genero": 1,
-        "cod_artista": 6,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g1",
+        "cod_artista": ["ar6"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Boate Azul.mp3",
-        "caminho_logo": "Imagens/artistas/25.png"
+        "caminho_logo": "Imagens/artistas/25.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 179185842  
     },
 
 
     {
-        "cod_musica": 11,
+        "cod_musica": "m11",
         "nome_musc": "Cadeira Cativa",
-        "cod_album": 0,
-        "cod_genero": 1,
-        "cod_artista": 7,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g1",
+        "cod_artista": ["ar7"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Cadeira Cativa.mp3",
-        "caminho_logo": "Imagens/artistas/23.png"
+        "caminho_logo": "Imagens/artistas/23.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 160497284  
     },
 
 
     {
-        "cod_musica": 12,
+        "cod_musica": "m12",
         "nome_musc": "Tubarões",
-        "cod_album": 0,
-        "cod_genero": 1,
-        "cod_artista": 8,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g1",
+        "cod_artista": ["ar8"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Tubarões.mp3",
-        "caminho_logo": "Imagens/artistas/21.png"
+        "caminho_logo": "Imagens/artistas/21.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 460938172
     },
 
 
 
     {
-        "cod_musica": 13,
+        "cod_musica": "m13",
         "nome_musc": "Cuida do Pet",
-        "cod_album": 0,
-        "cod_genero": 4,
-        "cod_artista": 9,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g4",
+        "cod_artista": ["ar9"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Cuida do Pet.mp3",
-        "caminho_logo": "Imagens/artistas/19.png"
+        "caminho_logo": "Imagens/artistas/19.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 143687102  
     },
 
 
 
     {
-        "cod_musica": 14,
+        "cod_musica": "m14",
         "nome_musc": "Tá Legal",
-        "cod_album": 0,
-        "cod_genero": 4,
-        "cod_artista": 10,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g4",
+        "cod_artista": ["ar10"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Tá Legal.mp3",
-        "caminho_logo": "Imagens/artistas/18.png"
+        "caminho_logo": "Imagens/artistas/18.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 258478  
     },
 
 
 
     {
-        "cod_musica": 15,
+        "cod_musica": "m15",
         "nome_musc": "Tenho Que Me Decidir",
-        "cod_album": 0,
-        "cod_genero": 4,
-        "cod_artista": 11,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g4",
+        "cod_artista": ["ar11"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Tenho Que Me Decidir.mp3",
-        "caminho_logo": "Imagens/artistas/16.png"
+        "caminho_logo": "Imagens/artistas/16.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 187143505     
     },
 
 
 
     {
-        "cod_musica": 16,
+        "cod_musica": "m16",
         "nome_musc": "Ainda Bem",
-        "cod_album": 0,
-        "cod_genero": 3,
-        "cod_artista": 12,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g3",
+        "cod_artista": ["ar12"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Ainda Bem.mp3",
-        "caminho_logo": "Imagens/artistas/20.png"
+        "caminho_logo": "Imagens/artistas/20.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 83427040  
     },
 
 
 
     {
-        "cod_musica": 17,
+        "cod_musica": "m17",
         "nome_musc": "O Leãozinho",
-        "cod_album": 0,
-        "cod_genero": 3,
-        "cod_artista": 13,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g3",
+        "cod_artista": ["ar13"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/O Leãolizho.mp3",
-        "caminho_logo": "Imagens/artistas/10.png"
+        "caminho_logo": "Imagens/artistas/10.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 22629845
     },
 
 
 
     {
-        "cod_musica": 18,
+        "cod_musica": "m18",
         "nome_musc": "Coisa Linda",
-        "cod_album": 0,
-        "cod_genero": 3,
-        "cod_artista": 14,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g3",
+        "cod_artista": ["ar14"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Coisa Linda.mp3",
-        "caminho_logo": "Imagens/artistas/30.png"
+        "caminho_logo": "Imagens/artistas/30.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 180855945
     },
 
 
 
     {
-        "cod_musica": 19,
+        "cod_musica": "m19",
         "nome_musc": "Deixa Acontecer",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 3,
-        "letra-musica": "letra musica",
+        "cod_album": "alb2",
+        "cod_genero": "g0",
+        "cod_artista": ["ar3"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Deixa Acontecer.mp3",
-        "caminho_logo": "Imagens/artistas/27.png"
-    },
-
-
-
-    {
-        "cod_musica": 20,
-        "nome_musc": "Distrimia",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
-        "caminho_arquivo": "Json/Musicas/Distrimia.mp3",
-        "caminho_logo": "Imagens/artistas/7.png"
+        "caminho_logo": "Imagens/artistas/58.png",
+        "duracao_musica": "4:20",
+        "reproducoes_musica": 255510892 
     },
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     {
-        "cod_musica": 21,
+        "cod_musica": "m21",
         "nome_musc": "Lapada Dela",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Lapada Dela.mp3",
-        "caminho_logo": "Imagens/artistas/41.png"
+        "caminho_logo": "Imagens/artistas/41.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 551627892
     },
 
 
     {
-        "cod_musica": 22,
+        "cod_musica": "m22",
         "nome_musc": "Falta Você",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 17,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar17"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Falta Você.mp3",
-        "caminho_logo": "Imagens/artistas/42.png"
+        "caminho_logo": "Imagens/artistas/42.png",
+        "duracao_musica": "4:31",
+        "reproducoes_musica": 39799023
     },
 
 
 
     {
-        "cod_musica": 23,
+        "cod_musica": "m23",
         "nome_musc": "Péssimo Negócio",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 18,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar18"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Péssimo Negócio.mp3",
-        "caminho_logo": "Imagens/artistas/43.png"
+        "caminho_logo": "Imagens/artistas/43.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 310355099
     },
 
 
 
     {
-        "cod_musica": 24,
+        "cod_musica": "m24",
         "nome_musc": "Invocada",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 19,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar19"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Invocada.mp3",
-        "caminho_logo": "Imagens/artistas/44.png"
+        "caminho_logo": "Imagens/artistas/44.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 130935834
     },
 
 
     {
-        "cod_musica": 25,
-        "nome_musc": "Bebe e Vem me Procurar",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_musica": "m25",
+        "nome_musc": "Bebe e Vem me Procurar / Quem Ama Sente Saudade",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0", "ar5"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Bebe e Vem me Procurar.mp3",
-        "caminho_logo": "Imagens/artistas/49.png"
+        "caminho_logo": "Imagens/artistas/49.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 3820592
     },
 
 
     {
-        "cod_musica": 26,
+        "cod_musica": "m26",
         "nome_musc": "Coração Partido - Ao Vivo",
-        "cod_album": 0,
-        "cod_genero": 0,
-        "cod_artista": 0,
-        "letra-musica": "letra musica",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0"],
+        "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Coração Partido - Ao Vivo.mp3",
-        "caminho_logo": "Imagens/artistas/3.png"
+        "caminho_logo": "Imagens/artistas/3.png",
+        "duracao_musica": "0:00",
+        "reproducoes_musica": 517180023
+    },
+
+
+
+    {
+        "cod_musica": "m27",
+        "nome_musc": "Melhor eu ir / Ligando os Fatos / Sonho de Amor / Deixa eu te querer",
+        "cod_album": "",
+        "cod_genero": "g0",
+        "cod_artista": ["ar0", "ar1", "ar2"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Melhor eu ir ; Ligando os Fatos ; Sonho de Amor ; Deixa eu te querer.mp3",
+        "caminho_logo": "Imagens/artistas/12.png",
+        "duracao_musica": "8:41",
+        "reproducoes_musica": 407500924
+    },
+
+
+    {
+        "cod_musica": "m28",
+        "nome_musc": "Te Amo - (Ao Vivo)",
+        "cod_album": "alb1",
+        "cod_genero": "g0",
+        "cod_artista": ["ar4"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Te Amo - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/57.png",
+        "duracao_musica": "3:35",
+        "reproducoes_musica": 20591203
+    },
+
+
+    {
+        "cod_musica": "m29",
+        "nome_musc": "Lembrança - (Ao Vivo)",
+        "cod_album": "alb1",
+        "cod_genero": "g0",
+        "cod_artista": ["ar4"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Lembrança - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/28.png",
+        "duracao_musica": "3:18",
+        "reproducoes_musica": 14278431
+    },
+
+
+
+    {
+        "cod_musica": "m30",
+        "nome_musc": "Pelas Ruas Que Andei - (Ao Vivo)",
+        "cod_album": "alb1",
+        "cod_genero": "g0",
+        "cod_artista": ["ar4"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Pelas Ruas Que Andei - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/28.png",
+        "duracao_musica": "2:47",
+        "reproducoes_musica": 1782493
+    },
+
+
+
+
+    {
+        "cod_musica": "m31",
+        "nome_musc": "Depois Me Conta - (Ao Vivo)",
+        "cod_album": "alb1",
+        "cod_genero": "g0",
+        "cod_artista": ["ar4"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Depois Me Conta - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/57.png",
+        "duracao_musica": "2:48",
+        "reproducoes_musica": 1252493
+    },
+
+
+
+    {
+        "cod_musica": "m32",
+        "nome_musc": "Mundo de Paz - (Ao Vivo)",
+        "cod_album": "alb1",
+        "cod_genero": "g0",
+        "cod_artista": ["ar4"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Mundo de Paz - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/57.png",
+        "duracao_musica": "3:11",
+        "reproducoes_musica": 1252493
+    },
+
+
+    {
+        "cod_musica": "m33",
+        "nome_musc": "Talvez - (Ao Vivo)",
+        "cod_album": "alb2",
+        "cod_genero": "g0",
+        "cod_artista": ["ar3"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Talvez - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/27.png",
+        "duracao_musica": "3:42",
+        "reproducoes_musica": 11053204
+    },
+
+
+
+    {
+        "cod_musica": "m34",
+        "nome_musc": "Compasso do Amor - (Ao Vivo)",
+        "cod_album": "alb2",
+        "cod_genero": "g0",
+        "cod_artista": ["ar3"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Compasso do Amor - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/58.png",
+        "duracao_musica": "3:18",
+        "reproducoes_musica": 32902853
+    }, 
+
+
+
+    {
+        "cod_musica": "m35",
+        "nome_musc": "Esqueci de Te Esquecer - (Ao Vivo)",
+        "cod_album": "alb2",
+        "cod_genero": "g0",
+        "cod_artista": ["ar3"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Esqueci de Te Esquecer - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/27.png",
+        "duracao_musica": "3:56",
+        "reproducoes_musica": 32902853
+    },
+
+
+    {
+        "cod_musica": "m36",
+        "nome_musc": "Altas Horas - (Ao Vivo)",
+        "cod_album": "alb2",
+        "cod_genero": "g0",
+        "cod_artista": ["ar3"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Altas Horas - (Ao Vivo).mp3",
+        "caminho_logo": "Imagens/artistas/58.png",
+        "duracao_musica": "3:07",
+        "reproducoes_musica": 6906756
     }
-    
 
 
 ]

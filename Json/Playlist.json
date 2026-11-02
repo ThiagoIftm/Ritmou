@@ -1,7 +1,8 @@
 [
     {
-        "cod_playlist": 0,
-        "nome_playlist": "Pagode",
-        "cod_user": 0
+        "cod_playlist": "pl0",
+        "nome_playlist": "As Mais Tocadas",
+        "cod_musica": ["m$"],
+        "cod_user": "us0"
     }
 ]

@@ -1,25 +1,27 @@
 [
     {
-        "cod_album": 0,
-        "nome_album": "Molho (Ao Vivo",
-        "datalancamento_album": [{
-            "ano": 2026,
-            "mes": 4,
-            "dia": 14
-            }
-        ],
-        "musicas": [
-            { "cod_musica": 0 },
-            { "cod_musica": 1 },
-            { "cod_musica": 2 },
-            { "cod_musica": 3 },
-            { "cod_musica": 4 },
-            { "cod_musica": 5 },
-            { "cod_musica": 6 }
-        ],
-        "caminho_logo": "2.png"
+        "cod_album": "alb0",
+        "nome_album": "Molho (Ao Vivo)",
+        "cod_artista": "ar0",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/2.png"
+    },
+
+    {
+        "cod_album": "alb1",
+        "nome_album": "Pagode do Pericão II, Pt. 1 (Ao Vivo)",
+        "cod_artista": "ar4",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/28.png"
+    },
+
+
+    {
+        "cod_album": "alb2",
+        "nome_album": "Na Palma da Mão - (Ao Vivo)",
+        "cod_artista": "ar3",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/27.png"
     }
 
-
-    
 ]

@@ -1,16 +1,16 @@
 [
     {
-        "cod_perfil": 0,
+        "cod_perfil": "p0",
         "tipo_perfil": "Usuário"
     },
 
     {
-        "cod_perfil": 1,
+        "cod_perfil": "p1",
         "tipo_perfil": "Artista"
     },
 
     {
-        "cod_perfil": 2,
+        "cod_perfil": "p2",
         "tipo_perfil": "Administrador"
     }
 ]

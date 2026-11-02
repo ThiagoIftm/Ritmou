@@ -1,34 +1,29 @@
 [
     {
-        "cod_user": 0,
-        "nome_user": "Cleiton Araújo Santos",
-        "datanascimento_user": [{
-            "ano": 2002,
-            "mes": 8,
-            "dia": 24
-            }],
-        "telefone_user": 34981024921,
-        "email_user": "cleitonaraujosantos@gmail.com",
-        "cpf_user": "01294019243",
-        "sexo_user": "M",
-        "cod_perfil": 0,
-        "senha_user": "cleiton1234"
+    "cod_user": "us0",
+    "nome_user": "Cleiton Araújo Santos",
+    "data_nascimento_user": "2002-08-24",
+    "telefone_user": "34981024921",
+    "email_user": "cleitonaraujosantos@gmail.com",
+    "cpf_user": "01294019243",
+    "sexo_user": "M",
+    "cod_perfil": "p0",
+    "senha_user": "cleiton1234"
     },
 
+
+
+
     {
-        "cod_user": 1,
-        "nome_user": "Pedro Alves Almeida",
-        "datanascimento_user": [{
-            "ano": 2004,
-            "mes": 3,
-            "dia": 14
-            }],
-        "telefone_user": 34983364921,
-        "email_user": "cleitonaraujosantos@gmail.com",
-        "cpf_user": "01294439243",
-        "sexo_user": "M",
-        "cod_perfil": 0,
-        "senha_user": "pedro1234"
+    "cod_user": "us1",
+    "nome_user": "Pedro Alves Almeida",
+    "data_nascimento_user": "2004-03-14",
+    "telefone_user": "34983364921",
+    "email_user": "pedroalmeida@gmail.com",
+    "cpf_user": "01254219243",
+    "sexo_user": "M",
+    "cod_perfil": "p0",
+    "senha_user": "pedro1234"
     }
     
 ]

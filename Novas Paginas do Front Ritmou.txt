@@ -8,3 +8,13 @@ RecuperarSenha5.html
 PlaylistUs6.html
 
 Criar a pagina Recuperar Senha. Adicionar botão na pagina entrar
+
+Alterações nomes de Páginas:
+
+UsuárioM10.html --> MusicaDetalhes.html
+
+UsuárioMs8.html --> Musicas.html
+
+TelaArtista12.html --> PainelArtista.html
+
+ArtistaAlbum11.html --> InformacoesAlbum.html

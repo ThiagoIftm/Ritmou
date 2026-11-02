@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BibliotecaUs6 - Sua Biblioteca</title>
+  <title>RITMOU - Sua Biblioteca</title>
   <link rel="stylesheet" href="style.css">
 
   
@@ -220,7 +220,7 @@
       </div>
 
       <div class="nav-buttons">
-        <a href="UsuárioMsP8.html">
+        <a href="Musicas.html">
           <button class="nav-btn">MÚSICAS</button>
         </a>
         <a href="BibliotecaUs6.html">
@@ -238,8 +238,7 @@
 
   <!-- MENU LATERAL ESQUERDO (Adicionado 'expanded' na classe) -->
   <aside class="sidebar-left expanded" id="sidebarLeft">
-    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()">
-      <div class="toggle-icon-circle" id="toggleIconLeft">&lt;</div>
+    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()"> 
       <span class="sidebar-title-text">Sua Biblioteca</span>
     </button>
 
@@ -373,56 +372,79 @@
     </section>
   </main>
 
-  <!-- MENU LATERAL DIREITO (Adicionado 'expanded' na classe) -->
-  <aside class="sidebar-right expanded" id="sidebarRight" onclick="handleRightSidebarClick(event)">
-    <div class="music-collapsed-view">
-      <div class="music-collapsed-btn">&lt;</div>
-    </div>
 
-    <div class="music-expanded-content">
+  
+    <!-- ÁREA DE MÚSICA DIREITA (Inicia Expandido) -->
+    <aside class="sidebar-right expanded" id="sidebarRight" onclick="handleRightSidebarClick(event)">
+      <div class="music-collapsed-view">
+        <div class="music-collapsed-btn">&lt;</div>
+      </div>
+
+      
       <div class="sidebar-right-header">
-        <button class="back-btn-right" onclick="collapseSidebarRight(event)">&gt;</button>
         <h2 class="sidebar-right-title">Discoteca</h2>
       </div>
 
+      <!-- Capa da Música -->
       <div class="music-cover-container">
-        <a href="TelaArtista12.html">
-          <img src="Imagens/artistas/40.png" alt="Capa da Música" class="music-cover">
+        <a href="#" id="menu-link-capa">
+          <img src="" alt="Capa da Música" class="music-cover" id="menu-img-capa">
         </a>
       </div>
 
-      <!-- BARRA DE TEMPO DA MÚSICA -->
-      <div class="time-bar-container">
-        <div class="time-bar-line"></div>
-        <span class="time-text">0:00</span>
+      <div class="minimal-player-container">
+        <!-- Barra de Progresso -->
+        <div class="player-progress">
+          <input type="range" id="minimal-progress" min="0" max="100" value="0">
+        </div>
+
+        <!-- Controlos de Reprodução -->
+        <div class="player-controls-bottom">
+          <button class="control-btn prev-btn">
+            <svg viewBox="0 0 24 24" class="icon-skip"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+          </button>
+          <button class="control-btn play-pause-btn">
+            <svg viewBox="0 0 24 24" class="icon-pause"><path d="M8 19h3V5H8v14zm5-14v14h3V5h-3z"/></svg>
+          </button>
+          <button class="control-btn next-btn">
+            <svg viewBox="0 0 24 24" class="icon-skip"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+          </button>
+        </div>
       </div>
 
+      <!-- Informações da Música -->
       <div class="music-info-row">
         <div class="music-text">
-          <h3 class="music-name">Coração Partido</h3>                    
-          <a href="TelaArtista12.html">
-            <p class="artist-name-sub">Grupo Menos É Mais</p>
-          </a>          
+          <!-- Adicionada a tag <a> em volta do nome da música -->
+          <a href="#" id="menu-link-musica" style="text-decoration: none; color: inherit;">
+            <h3 class="music-name" id="menu-nome-musica">Carregando...</h3>
+          </a>
+          <a href="#" id="menu-link-artista-sub">
+            <p class="artist-name-sub" id="menu-nome-artista-sub">Carregando...</p>
+          </a>
         </div>
-        <button class="btn-add-circle" title="Adicionar">+</button>
       </div>
 
+      <!-- Sobre o Artista -->
       <div class="artist-card-box">
         <h4 class="artist-card-title">Sobre o Artista</h4>
         <div class="artist-avatar-mini">
-          <a href="TelaArtista12.html">
-            <img src="Imagens/artistas/11.png" alt="Artista Mini" style="width:100%;height:100%;object-fit:cover;">
+          <a href="#" id="menu-link-artista-mini">
+            <img src="" alt="Artista Mini" style="width:100%;height:100%;object-fit:cover;" id="menu-img-artista">
           </a>
         </div>
-        <a href="TelaArtista12.html">
-          <h5 class="artist-card-name">Grupo Menos É Mais</h5>
+        <a href="#" id="menu-link-artista-card">
+          <h5 class="artist-card-name" id="menu-nome-artista-card">Carregando...</h5>
         </a>
-        <p class="artist-card-bio">
-          Texto Sobre o Artista que traz detalhes da sua trajetória e sucessos.
+        <p class="artist-card-bio" id="menu-bio-artista">
+          <!-- Deixei dinâmico caso queira adicionar a bio no futuro, ou pode manter texto estático -->
+          Acompanhe os sucessos e a trajetória deste artista.
         </p>
       </div>
-    </div>
-  </aside>
+
+      </div>
+    </aside>
+
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -468,6 +490,8 @@
       sidebarRight.classList.remove('expanded');
     }
   </script>
+
+  <script src="ScriptMusicaGlobal.js"></script>
 
 </body>
 </html>
