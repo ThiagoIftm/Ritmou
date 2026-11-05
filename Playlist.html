@@ -12,7 +12,7 @@
     /* ==================== CONTEÚDO PRINCIPAL ==================== */
     .main-content {
       position: fixed;
-      top: 259px;
+      top: 200px;
       bottom: 0;
       left: 200px;
       right: 250px;
@@ -293,7 +293,7 @@
 
     <div class="header-center">
       <div class="search-row">
-        <a href="UsuárioLogado4.html" class="home-btn" title="Início">
+        <a href="Inicio.html" class="home-btn" title="Início">
           <svg class="home-icon" viewBox="0 0 24 24">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
           </svg>
@@ -331,7 +331,7 @@
     </button>
 
     <div class="playlist-list">
-      <a href="UsuárioPl9.html" class="playlist-item">
+      <a href="Playlist.html?id=pl0" class="playlist-item">
         <img src="Imagens/artistas/35.png" alt="Playlist 1" class="playlist-thumb">
         <span class="playlist-name">Nome Playlist 1</span>
       </a>
@@ -358,30 +358,29 @@
     </div>
   </aside>
 
-  <!-- ÁREA CENTRAL DA PÁGINA -->
+
+
+
+<!-- ÁREA CENTRAL DA PÁGINA -->
   <main class="main-content" id="mainContent">
 
     <!-- PRIMEIRA CAIXA (HERO DA PLAYLIST) -->
     <section class="playlist-hero">
-      <img src="Imagens/artistas/35.png" alt="Capa Playlist Pagode" class="playlist-hero-cover">
+      <img src="" alt="Capa da Playlist" class="playlist-hero-cover" id="capa-playlist-img">
       
       <div class="playlist-hero-info">
         <span class="playlist-label">Playlist</span>
-        <h1 class="playlist-title">Pagode</h1>
+        <h1 class="playlist-title" id="nome-playlist-texto">Carregando...</h1>
         <div class="playlist-actions">
-          <button class="play-hero-btn" title="Tocar Playlist">
+          <button class="play-hero-btn" id="play-playlist-btn" title="Tocar Playlist">
             <svg class="play-hero-icon" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z"/>
             </svg>
           </button>
-          <button class="action-icon-btn" title="Ordem Aleatória">
-            <svg class="shuffle-icon" viewBox="0 0 24 24">
+          <button class="action-icon-btn" id="shuffle-playlist-btn" title="Ordem Aleatória">
+            <svg class="shuffle-icon" id="shuffle-icon" viewBox="0 0 24 24">
               <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.45 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
             </svg>
-          </button>
-          <button class="delete-playlist-btn">
-            <span class="minus-circle-icon">-</span>
-            Apagar Playlist
           </button>
         </div>
       </div>
@@ -402,192 +401,16 @@
             <th>Álbum</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- MÚSICA 1 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">1</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/29.png" alt="Deixa Alagar" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Deixa Alagar</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Revelação</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">3:43</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">O Bom Samba Continua</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 2 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">2</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/28.png" alt="Nosso Amor Quer Paz" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Nosso Amor Quer Paz</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Péricles</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">2:54</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Pagode do Pericão II</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 3 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">3</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/27.png" alt="Deixa Acontecer" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Deixa Acontecer</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Revelação</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">4:20</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Ao Vivo - Na Palma da Mão</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 4 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">4</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/26.png" alt="Pedindo a Conta" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Pedindo a Conta</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Turma do Pagode, Zeca Pagodinho</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">3:25</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Ao Vivo - Na Palma da Mão</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 5 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">5</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/7.png" alt="Distrimia" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Distrimia</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Casuarina</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">3:03</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Roda de Samba do Casuarina e Convidados</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 6 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">6</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/13.png" alt="Pela Última Vez - Ao Vivo" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Pela Última Vez - Ao Vivo</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Menos é Mais</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">2:42</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Pela Última Vez (Ao Vivo)</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 7 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">7</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/41.png" alt="Lapada Dela" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Lapada Dela</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Grupo Menos é Mais, Matheus & Kauan</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">2:50</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Confusão de Calango</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 8 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">8</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/42.png" alt="Falta de Atenção" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Falta Você</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Thiaguinho</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">3:12</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Tardezinha</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 9 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">9</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/43.png" alt="Péssimo Negócio" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Péssimo Negócio</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Dilsinho</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">3:01</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Terra do Nunca</a>
-            </td>
-          </tr>
-
-          <!-- MÚSICA 10 -->
-          <tr class="track-row" onclick="window.location.href='UsuárioM10.html'">
-            <td class="track-index">10</td>
-            <td>
-              <div class="track-title-cell">
-                <img src="Imagens/artistas/44.png" alt="Invocada" class="track-thumb">
-                <div class="track-details">
-                  <a href="UsuárioM10.html" class="track-name" onclick="event.stopPropagation()">Invocada</a>
-                  <a href="TelaArtista12.html" class="track-artist" onclick="event.stopPropagation()">Ludmilla, Léo Santana</a>
-                </div>
-              </div>
-            </td>
-            <td class="track-time">2:40</td>
-            <td class="track-album">
-              <a href="ArtistaAlbum11.html" class="album-link" onclick="event.stopPropagation()">Hello Mundo</a>
-            </td>
-          </tr>
-
+        <tbody id="tracklist-playlist-body">
+          <!-- As músicas serão injetadas aqui pelo JS -->
         </tbody>
       </table>
     </section>
 
   </main>
+
+
+
 
     <!-- ÁREA DE MÚSICA DIREITA (Inicia Expandido) -->
     <aside class="sidebar-right expanded" id="sidebarRight" onclick="handleRightSidebarClick(event)">
@@ -695,7 +518,7 @@
     }
   </script>
 
-
+  <script src="ScriptPlaylist.js"></script>
   <script src="ScriptMusicaGlobal.js"></script>
 
 </body>

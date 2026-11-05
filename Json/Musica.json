@@ -166,13 +166,13 @@
     {
         "cod_musica": "m12",
         "nome_musc": "Tubarões",
-        "cod_album": "",
+        "cod_album": "alb4",
         "cod_genero": "g1",
         "cod_artista": ["ar8"],
         "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Tubarões.mp3",
         "caminho_logo": "Imagens/artistas/21.png",
-        "duracao_musica": "0:00",
+        "duracao_musica": "2:42",
         "reproducoes_musica": 460938172
     },
 
@@ -181,14 +181,14 @@
     {
         "cod_musica": "m13",
         "nome_musc": "Cuida do Pet",
-        "cod_album": "",
+        "cod_album": "alb3",
         "cod_genero": "g4",
         "cod_artista": ["ar9"],
         "letra_musica": "letra musica",
         "caminho_arquivo": "Json/Musicas/Cuida do Pet.mp3",
         "caminho_logo": "Imagens/artistas/19.png",
-        "duracao_musica": "0:00",
-        "reproducoes_musica": 143687102  
+        "duracao_musica": "7:39",
+        "reproducoes_musica": 146600923  
     },
 
 
@@ -525,7 +525,123 @@
         "caminho_logo": "Imagens/artistas/58.png",
         "duracao_musica": "3:07",
         "reproducoes_musica": 6906756
+    },
+
+
+    {
+        "cod_musica": "m37",
+        "nome_musc": "Medley de Igaratá 4",
+        "cod_album": "alb3",
+        "cod_genero": "g4",
+        "cod_artista": ["ar9"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Medley de Igaratá 4.mp3",
+        "caminho_logo": "Imagens/artistas/60.png",
+        "duracao_musica": "5:00",
+        "reproducoes_musica": 63091820  
+    },
+
+
+        {
+        "cod_musica": "m38",
+        "nome_musc": "A Nata",
+        "cod_album": "alb3",
+        "cod_genero": "g4",
+        "cod_artista": ["ar9"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/A Nata.mp3",
+        "caminho_logo": "Imagens/artistas/36.png",
+        "duracao_musica": "5:00",
+        "reproducoes_musica": 45085102  
+    },
+
+
+        {
+        "cod_musica": "m39",
+        "nome_musc": "Vou Pela Madrugada",
+        "cod_album": "alb3",
+        "cod_genero": "g4",
+        "cod_artista": ["ar9"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Vou Pela Madrugada.mp3",
+        "caminho_logo": "Imagens/artistas/60.png",
+        "duracao_musica": "4:42",
+        "reproducoes_musica": 169023940  
+    },
+
+
+    {
+        "cod_musica": "m40",
+        "nome_musc": "Medley de Igaratá 3",
+        "cod_album": "alb3",
+        "cod_genero": "g4",
+        "cod_artista": ["ar9"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Medley de Igaratá 3.mp3",
+        "caminho_logo": "Imagens/artistas/36.png",
+        "duracao_musica": "4:25",
+        "reproducoes_musica": 169023940  
+    },
+
+
+
+        {
+        "cod_musica": "m41",
+        "nome_musc": "Toma Que Toma",
+        "cod_album": "alb3",
+        "cod_genero": "g4",
+        "cod_artista": ["ar9"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Toma Que Toma.mp3",
+        "caminho_logo": "Imagens/artistas/60.png",
+        "duracao_musica": "7:42",
+        "reproducoes_musica": 64005129  
+    },
+
+
+
+    {
+        "cod_musica": "m42",
+        "nome_musc": "Dama do Baralho",
+        "cod_album": "alb4",
+        "cod_genero": "g1",
+        "cod_artista": ["ar8"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Dama do Baralho.mp3",
+        "caminho_logo": "Imagens/artistas/61.png",
+        "duracao_musica": "2:45",
+        "reproducoes_musica": 89504724
+    },
+
+
+    {
+        "cod_musica": "m43",
+        "nome_musc": "Camisola e Fio",
+        "cod_album": "alb4",
+        "cod_genero": "g1",
+        "cod_artista": ["ar8"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Camisola e Fio.mp3",
+        "caminho_logo": "Imagens/artistas/21.png",
+        "duracao_musica": "3:00",
+        "reproducoes_musica": 89504724
+    },
+
+
+    {
+        "cod_musica": "m44",
+        "nome_musc": "Criança Pequena - Família",
+        "cod_album": "alb4",
+        "cod_genero": "g1",
+        "cod_artista": ["ar8"],
+        "letra_musica": "letra musica",
+        "caminho_arquivo": "Json/Musicas/Criança Pequena - Família.mp3",
+        "caminho_logo": "Imagens/artistas/61.png",
+        "duracao_musica": "3:35",
+        "reproducoes_musica": 25920129
     }
+
+
 
 
 ]

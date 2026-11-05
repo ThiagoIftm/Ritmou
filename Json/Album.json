@@ -22,6 +22,23 @@
         "cod_artista": "ar3",
         "data_lancamento": "2026-04-14",
         "caminho_capa": "Imagens/artistas/27.png"
+    },
+
+
+    {
+        "cod_album": "alb3",
+        "nome_album": "A Nata de Tudo",
+        "cod_artista": "ar9",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/36.png"
+    },
+
+    {
+        "cod_album": "alb4",
+        "nome_album": "Ao Vivo em Uberlândia",
+        "cod_artista": "ar8",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/21.png"
     }
 
 ]
