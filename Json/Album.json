@@ -39,6 +39,14 @@
         "cod_artista": "ar8",
         "data_lancamento": "2026-04-14",
         "caminho_capa": "Imagens/artistas/21.png"
+    },
+
+    {
+        "cod_album": "alb5",
+        "nome_album": "Ferrugem 10 Anos (Ao Vivo)",
+        "cod_artista": "ar15",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/62.png"
     }
 
 ]
