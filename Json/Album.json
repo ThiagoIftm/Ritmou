@@ -47,6 +47,32 @@
         "cod_artista": "ar15",
         "data_lancamento": "2026-04-14",
         "caminho_capa": "Imagens/artistas/62.png"
+    },
+
+
+    {
+        "cod_album": "alb6",
+        "nome_album": "Essa Boneca Tem Manual",
+        "cod_artista": "ar12",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/20.png"
+    },
+
+    {
+        "cod_album": "alb7",
+        "nome_album": "Caetanear",
+        "cod_artista": "ar13",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/10.png"
+    },
+
+
+    {
+        "cod_album": "alb8",
+        "nome_album": "Vocês & Deus",
+        "cod_artista": "ar7",
+        "data_lancamento": "2026-04-14",
+        "caminho_capa": "Imagens/artistas/23.png"
     }
 
 ]

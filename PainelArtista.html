@@ -9,20 +9,18 @@
   <style>
 
 
-/* ==================== CONTEÚDO PRINCIPAL (SEM ROLAGEM) ==================== */
+/* ==================== CONTEÚDO PRINCIPAL ==================== */
     .main-content {
       position: fixed;
-      top: 180px; /* Alinhado perfeitamente com os menus laterais */
+      top: 180px;
       bottom: 0;
-      left: 220px; /* Escala de 75% sobre os 270px originais */
-      right: 270px; /* Escala de 75% sobre os 330px originais */
-      overflow: hidden; /* SEM ROLAGEM */
+      left: 220px;
+      right: 270px;
       padding: 8px 8px 0 8px; 
       display: flex;
       flex-direction: column;
     }
 
-    /* BANNER SUPERIOR DO ARTISTA */
     .artist-hero {
       position: relative;
       z-index: 2;
@@ -46,7 +44,6 @@
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
     }
 
-    /* CONTAINER AZUL QUE PREENCHE ATÉ O FINAL DA TELA */
     .artist-details-container {
       position: relative;
       z-index: 1;
@@ -62,7 +59,6 @@
       overflow: hidden;
     }
 
-    /* CABEÇALHO DA TABELA */
     .tracklist-header {
       display: flex;
       align-items: center;
@@ -106,7 +102,6 @@
       fill: #ffffff;
     }
 
-    /* CORPO DA LISTA DE POPULARES */
     .tracklist-body {
       display: flex;
       flex-direction: column;
@@ -179,7 +174,6 @@
       color: #ffffff;
     }
 
-    /* ==================== SESSÃO ÁLBUNS ==================== */
     .albums-section {
       margin-top: 15px;
       display: flex;
@@ -267,20 +261,20 @@
         <a href="Musicas.html">
           <button class="nav-btn">MÚSICAS</button>
         </a>
-        <a href="BibliotecaUs6.html">
+        <a href="Biblioteca.html">
           <button class="nav-btn">PLAYLISTS</button>
         </a>        
       </div>
     </div>
 
     <div class="header-right">
-      <a href="UsuárioInfo13.html" class="profile-link" title="Perfil do Usuário">
+      <a href="VisaoConta.html" class="profile-link" title="Perfil do Usuário">
         <img src="Imagens/user_icon.png" alt="Foto Perfil" class="profile-img">
       </a>
     </div>
   </header>
 
-  <!-- MENU LATERAL ESQUERDO (Inicia Expandido) -->
+  <!-- MENU LATERAL ESQUERDO -->
   <aside class="sidebar-left expanded" id="sidebarLeft">
     <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()"> 
       <span class="sidebar-title-text">Sua Biblioteca</span>
@@ -288,31 +282,60 @@
 
     <div class="playlist-list">
       <a href="Playlist.html?id=pl0" class="playlist-item">
-        <img src="Imagens/artistas/35.png" alt="Playlist 1" class="playlist-thumb">
-        <span class="playlist-name">Nome Playlist 1</span>
+        <img src="Imagens/artistas/59.png" alt="Playlist 1" class="playlist-thumb">
+        <span class="playlist-name">As Mais Tocadas</span>
       </a>
-      <a href="Playlisthtml?id=pl0" class="playlist-item">
+      <a href="Playlist.html?id=pl1" class="playlist-item">
         <img src="Imagens/artistas/38.png" alt="Playlist 2" class="playlist-thumb">
-        <span class="playlist-name">Nome Playlist 2</span>
+        <span class="playlist-name">Churrasqueada</span>
       </a>
-      <a href="Playlist.html?id=pl0" class="playlist-item">
-        <img src="Imagens/artistas/37.png" alt="Playlist 3" class="playlist-thumb">
-        <span class="playlist-name">Nome Playlist 3</span>
+      <a href="Playlist.html?id=pl2" class="playlist-item">
+        <img src="Imagens/artistas/60.png" alt="Playlist 3" class="playlist-thumb">
+        <span class="playlist-name">Treino Intenso</span>
       </a>
-      <a href="Playlist.html?id=pl0" class="playlist-item">
-        <img src="Imagens/artistas/36.png" alt="Playlist 4" class="playlist-thumb">
-        <span class="playlist-name">Nome Playlist 4</span>
-      </a>
-      <a href="Playlist.html?id=pl0" class="playlist-item">
-        <img src="Imagens/artistas/29.png" alt="Playlist 5" class="playlist-thumb">
-        <span class="playlist-name">Nome Playlist 5</span>
-      </a>
-      <a href="Playlist.html?id=pl0" class="playlist-item">
-        <img src="Imagens/artistas/39.png" alt="Playlist 6" class="playlist-thumb">
-        <span class="playlist-name">Nome Playlist 6</span>
+      <a href="Playlist.html?id=pl3" class="playlist-item">
+        <img src="Imagens/artistas/56.png" alt="Playlist 4" class="playlist-thumb">
+        <span class="playlist-name">Relax</span>
       </a>
     </div>
   </aside>
+
+
+  <div class="universal-music-bar">
+      <div class="umb-info">
+          <img id="umb-capa" src="" alt="Capa da música" style="display: none;">
+          <div class="umb-text">
+              <a href="#" id="umb-nome-musica"></a>
+              <a href="#" id="umb-nome-artista"></a>
+          </div>
+      </div>
+
+      <div class="umb-controls">
+          <div class="umb-buttons">
+              <button class="prev-btn" id="umb-btn-prev">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+              </button>
+              <button class="play-pause-btn" id="umb-btn-play">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <button class="next-btn" id="umb-btn-next">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+              </button>
+          </div>
+          <div class="umb-progress">
+              <span id="umb-tempo-atual">0:00</span>
+              <input type="range" id="minimal-progress" min="0" max="100" value="0">
+              <span id="umb-tempo-total">0:00</span>
+          </div>
+      </div>
+
+      <div class="umb-volume">
+          <button id="umb-btn-mute">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+          <input type="range" id="umb-volume-slider" min="0" max="1" step="0.01" value="1">
+      </div>
+  </div>
 
 
 
@@ -320,16 +343,14 @@
 
 
   
-  <!-- ÁREA CENTRAL DA PÁGINA (TELA DO ARTISTA - SEM SCROLL) -->
+  <!-- ÁREA CENTRAL DA PÁGINA -->
   <main class="main-content" id="mainContent">
 
 
-    <!-- CAIXA COM IMAGEM DE FUNDO DO ARTISTA -->
     <section id="artist-hero-section" class="artist-hero">
       <h1 id="nome-artista-texto" class="artist-hero-name">Carregando...</h1>
     </section>
 
-    <!-- CONTAINER DE MÚSICAS POPULARES DO ARTISTA E ÁLBUNS -->
     <section class="artist-details-container">
       
       <div class="tracklist-header">
@@ -345,22 +366,14 @@
       </div>
 
 
-
-
-      <!-- AS 5 MÚSICAS MAIS TOCADAS -->
       
       <div id="populares-container" class="tracklist-body">
-      <!-- AS 5 MÚSICAS MAIS TOCADAS SERÃO GERADAS AQUI PELO JS -->
       </div>
 
 
-
-
-      <!-- SESSÃO DE ÁLBUNS -->
       <div class="albums-section">
         <div class="albums-badge">Álbuns</div>
 
-        <!-- CONTAINER ONDE OS ÁLBUNS SERÃO GERADOS PELO JS -->
         <div id="albums-container" class="albums-grid">
             
         </div>
@@ -370,7 +383,7 @@
 
   </main>
 
-    <!-- ÁREA DE MÚSICA DIREITA (Inicia Expandido) -->
+    <!-- ÁREA DE MÚSICA DIREITA -->
     <aside class="sidebar-right expanded" id="sidebarRight" onclick="handleRightSidebarClick(event)">
       <div class="music-collapsed-view">
         <div class="music-collapsed-btn">&lt;</div>
@@ -381,7 +394,6 @@
         <h2 class="sidebar-right-title">Discoteca</h2>
       </div>
 
-      <!-- Capa da Música -->
       <div class="music-cover-container">
         <a href="#" id="menu-link-capa">
           <img src="" alt="Capa da Música" class="music-cover" id="menu-img-capa">
@@ -389,12 +401,10 @@
       </div>
 
       <div class="minimal-player-container">
-        <!-- Barra de Progresso -->
         <div class="player-progress">
           <input type="range" id="minimal-progress" min="0" max="100" value="0">
         </div>
 
-        <!-- Controlos de Reprodução -->
         <div class="player-controls-bottom">
           <button class="control-btn prev-btn">
             <svg viewBox="0 0 24 24" class="icon-skip"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
@@ -408,10 +418,8 @@
         </div>
       </div>
 
-      <!-- Informações da Música -->
       <div class="music-info-row">
         <div class="music-text">
-          <!-- Adicionada a tag <a> em volta do nome da música -->
           <a href="#" id="menu-link-musica" style="text-decoration: none; color: inherit;">
             <h3 class="music-name" id="menu-nome-musica">Carregando...</h3>
           </a>
@@ -421,22 +429,7 @@
         </div>
       </div>
 
-      <!-- Sobre o Artista -->
-      <div class="artist-card-box">
-        <h4 class="artist-card-title">Sobre o Artista</h4>
-        <div class="artist-avatar-mini">
-          <a href="#" id="menu-link-artista-mini">
-            <img src="" alt="Artista Mini" style="width:100%;height:100%;object-fit:cover;" id="menu-img-artista">
-          </a>
-        </div>
-        <a href="#" id="menu-link-artista-card">
-          <h5 class="artist-card-name" id="menu-nome-artista-card">Carregando...</h5>
-        </a>
-        <p class="artist-card-bio" id="menu-bio-artista">
-          <!-- Deixei dinâmico caso queira adicionar a bio no futuro, ou pode manter texto estático -->
-          Acompanhe os sucessos e a trajetória deste artista.
-        </p>
-      </div>
+
 
       </div>
     </aside>
@@ -448,18 +441,15 @@
       const sidebarRight = document.getElementById('sidebarRight');
       const toggleIconLeft = document.getElementById('toggleIconLeft');
 
-      // Adiciona a classe 'expanded' para iniciar expandido
       sidebarLeft.classList.add('expanded');
       sidebarRight.classList.add('expanded');
 
-      // Muda o ícone para indicar que o menu está aberto
       if (toggleIconLeft) {
         toggleIconLeft.textContent = '<';
       }
   });
 
 
-      // CONTROLE DO MENU LATERAL ESQUERDO
       function toggleSidebarLeft() {
         const sidebarLeft = document.getElementById('sidebarLeft');
         const toggleIcon = document.getElementById('toggleIconLeft');
@@ -473,7 +463,6 @@
         }
       }
 
-      // CONTROLE DO MENU LATERAL DIREITO
       function handleRightSidebarClick(event) {
         const sidebarRight = document.getElementById('sidebarRight');
 
@@ -489,7 +478,6 @@
         sidebarRight.classList.remove('expanded');
       }
 
-      // FUNÇÃO PARA MOSTRAR/OCULTAR A LETRA COMPLETA
       function toggleLyrics() {
         const extraLyrics = document.getElementById('extraLyrics');
         const showMoreBtn = document.getElementById('showMoreBtn');

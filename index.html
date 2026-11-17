@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RITMOU - Início</title>
   <style>
-    /* ==================== RESET DE ESTILOS BASE ==================== */
     * {
       margin: 0;
       padding: 0;
@@ -171,7 +170,7 @@
       font-weight: 700;
     }
 
-    /* BOTÃO "+ CRIAR" */
+
     .btn-criar {
       display: flex;
       align-items: center;
@@ -231,14 +230,22 @@
 
     /* ==================== CONTEÚDO PRINCIPAL ==================== */
     .main-content {
-      margin-top: 259px;
-      margin-left: 405px;
-      padding-right: 56px;
-      padding-bottom: 67px;
+      position: fixed;
+      top: 180px;
+      bottom: 0;
+      left: 245px;
+      right: 263px;
+      overflow-y: auto;
+      padding-top: 8px;
+      padding-left: 113px;
+      padding-right: 15px;
+      padding-bottom: 45px;
       display: flex;
       flex-direction: column;
-      gap: 56px;
-    }
+      gap: 60px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+        }
 
     .section-title-box {
       background-color: #243b8b;
@@ -257,6 +264,7 @@
     .cards-row {
       display: flex;
       justify-content: space-between;
+      gap: 90px;
       width: 100%;
       align-items: flex-start;
     }
@@ -307,7 +315,7 @@
 </head>
 <body>
 
-  <!-- CABEÇALHO DA PÁGINA -->
+  <!-- CABEÇALHO -->
   <header class="header">
     <div class="header-left">
       <img src="Imagens/LogoRitmouFundo.png" alt="Logo RITMOU" class="logo-img">
@@ -329,17 +337,17 @@
     </div>
 
     <div class="header-right">
-      <a href="Cadastrar2.html" class="btn-auth">INSCREVER</a>
-      <a href="Entrar3.html" class="btn-auth">ENTRAR</a>
+      <a href="Cadastrar.html" class="btn-auth">INSCREVER</a>
+      <a href="Entrar.html" class="btn-auth">ENTRAR</a>
     </div>
   </header>
 
-  <!-- BARRA LATERAL (MENU) -->
+  <!-- BARRA LATERAL -->
   <aside class="sidebar">
     <div class="sidebar-header">
       <h2 class="sidebar-title">Sua Biblioteca</h2>
       
-      <a href="Entrar3.html" class="btn-criar">
+      <a href="Entrar.html" class="btn-criar">
         <svg class="plus-icon" viewBox="0 0 24 24">
           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
         </svg>
@@ -347,7 +355,7 @@
       </a>
     </div>
 
-    <a href="Entrar3.html" class="card-playlist">
+    <a href="Entrar.html" class="card-playlist">
       <span class="card-title">Crie sua primeira playlist</span>
       <span class="card-subtitle">Criar playlist</span>
     </a>
@@ -356,66 +364,66 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="main-content">
 
-    <!-- SESSÃO 1: TOP ARTISTAS POPULARES -->
+
     <section>
       <div class="section-title-box">Top Artistas Populares</div>
 
       <div class="cards-row">
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
-            <img src="Imagens/artistas/34.png" alt="Henrique e Juliano" class="circle-img">
+          <a href="Entrar.html" class="circle-link">
+            <img src="Imagens/artistas/45.png" alt="Henrique e Juliano" class="circle-img">
           </a>
         </div>
 
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
+          <a href="Entrar.html" class="circle-link">
             <img src="Imagens/artistas/33.png" alt="Diego e Victor Hugo" class="circle-img">
           </a>
         </div>
 
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
+          <a href="Entrar.html" class="circle-link">
             <img src="Imagens/artistas/32.png" alt="Pau do Pecado" class="circle-img">
           </a>
         </div>
 
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
+          <a href="Entrar.html" class="circle-link">
             <img src="Imagens/artistas/31.png" alt="Jorge e Mateus" class="circle-img">
           </a>
         </div>
       </div>
     </section>
 
-    <!-- SESSÃO 2: GÊNEROS MUSICAIS -->
+
     <section>
       <div class="section-title-box">Gêneros Musicais</div>
 
       <div class="cards-row">
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
+          <a href="Entrar.html" class="circle-link">
             <img src="Imagens/generos/pagode.png" alt="Pagode" class="circle-img">
           </a>
           <div class="genre-label-box">Pagode</div>
         </div>
 
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
+          <a href="Entrar.html" class="circle-link">
             <img src="Imagens/generos/sertanejo.png" alt="Sertanejo" class="circle-img">
           </a>
           <div class="genre-label-box">Sertanejo</div>
         </div>
 
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
-            <img src="Imagens/generos/rock.png" alt="Rock" class="circle-img">
+          <a href="Entrar.html" class="circle-link">
+            <img src="Imagens/generos/funk.png" alt="Rock" class="circle-img">
           </a>
-          <div class="genre-label-box">Rock</div>
+          <div class="genre-label-box">Funk</div>
         </div>
 
         <div class="card-item">
-          <a href="Entrar3.html" class="circle-link">
-            <img src="Imagens/generos/mpb.jpg" alt="MPB" class="circle-img">
+          <a href="Entrar.html" class="circle-link">
+            <img src="Imagens/generos/mpb.png" alt="MPB" class="circle-img">
           </a>
           <div class="genre-label-box">MPB</div>
         </div>
@@ -423,6 +431,9 @@
     </section>
 
   </main>
+
+
+  
 
 </body>
 </html>

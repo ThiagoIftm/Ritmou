@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RITMOU - Planos</title>
-  <link rel="stylesheet" href="style.css">
-  
   <style>
-    /* RESET BASE */
     * {
       margin: 0;
       padding: 0;
@@ -22,21 +19,21 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       color: #ffffff;
     }
 
-    /* CABEÇALHO DA PÁGINA */
     .header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     .header h1 {
-      font-size: 36px;
+      font-size: 40px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
     .header p {
@@ -45,101 +42,103 @@
       font-weight: 500;
     }
 
-    /* CONTAINER DOS CARDS */
     .pricing-container {
       display: flex;
-      gap: 30px;
-      max-width: 900px;
+      gap: 25px;
+      max-width: 1100px;
       width: 100%;
       justify-content: center;
       align-items: stretch;
       flex-wrap: wrap;
     }
 
-    /* CARD DE PLANO */
     .plan-card {
-      background-color: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background-color: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 24px;
       padding: 40px 32px;
       flex: 1;
       min-width: 280px;
-      max-width: 380px;
+      max-width: 340px;
       display: flex;
       flex-direction: column;
       position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .plan-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.06);
     }
 
-    /* CARD EM DESTAQUE (PREMIUM) */
     .plan-card.featured {
-      background: linear-gradient(180deg, rgba(59, 130, 246, 0.15) 0%, rgba(36, 59, 139, 0.4) 100%);
+      background: linear-gradient(180deg, rgba(59, 130, 246, 0.2) 0%, rgba(36, 59, 139, 0.5) 100%);
       border: 2px solid #4a8bf5;
       box-shadow: 0 12px 35px rgba(74, 139, 245, 0.25);
+      transform: scale(1.03);
     }
 
     .plan-card.featured:hover {
-      box-shadow: 0 22px 45px rgba(74, 139, 245, 0.4);
+      transform: scale(1.05) translateY(-8px);
+      box-shadow: 0 22px 50px rgba(74, 139, 245, 0.4);
     }
 
-    /* SELO DE MAIS POPULAR */
     .badge {
       position: absolute;
-      top: -15px;
+      top: -16px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #10b981;
+      background: linear-gradient(90deg, #10b981, #059669);
       color: #ffffff;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      padding: 6px 18px;
+      letter-spacing: 1px;
+      padding: 6px 20px;
       border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
     }
 
-    /* DETALHES DO PLANO */
     .plan-title {
       font-size: 24px;
       font-weight: 700;
       margin-bottom: 16px;
       text-align: center;
+      color: #f8fafc;
     }
 
     .plan-price {
       text-align: center;
       margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .plan-price .currency {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 600;
       vertical-align: top;
-      line-height: 1.4;
+      line-height: 1.6;
+      color: #94a3b8;
     }
 
     .plan-price .amount {
-      font-size: 44px;
+      font-size: 48px;
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -1.5px;
+      color: #ffffff;
     }
 
     .plan-price .period {
-      font-size: 14px;
+      font-size: 15px;
       color: #94a3b8;
       font-weight: 500;
     }
 
-    /* LISTA DE RECURSOS */
     .features-list {
       list-style: none;
       margin-bottom: 35px;
@@ -150,20 +149,31 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 500;
-      margin-bottom: 16px;
-      color: #e2e8f0;
+      margin-bottom: 18px;
+      color: #cbd5e1;
+    }
+    
+    .features-list li.disabled {
+      color: #64748b;
+      text-decoration: line-through;
     }
 
     .check-icon {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       fill: #10b981;
       flex-shrink: 0;
     }
 
-    /* BOTÕES DE AÇÃO */
+    .cross-icon {
+      width: 22px;
+      height: 22px;
+      fill: #64748b;
+      flex-shrink: 0;
+    }
+
     .btn-plan {
       width: 100%;
       padding: 16px;
@@ -172,10 +182,22 @@
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s facil;
       text-align: center;
       text-decoration: none;
       display: inline-block;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border-color: #cbd5e1;
     }
 
     .btn-secondary {
@@ -186,17 +208,19 @@
 
     .btn-secondary:hover {
       background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
     .btn-primary {
-      background-color: #4a8bf5;
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
       color: #ffffff;
-      box-shadow: 0 4px 15px rgba(74, 139, 245, 0.4);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
     }
 
     .btn-primary:hover {
-      background-color: #3b7be3;
-      transform: scale(1.02);
+      background: linear-gradient(90deg, #2563eb, #1d4ed8);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
     }
   </style>
 </head>
@@ -209,9 +233,35 @@
 
   <main class="pricing-container">
 
-    <!-- PLANO BÁSICO -->
     <div class="plan-card">
-      <h2 class="plan-title">Plano Básico</h2>
+      <h2 class="plan-title">Gratuito</h2>
+      
+      <div class="plan-price">
+        <span class="currency">R$</span>
+        <span class="amount">0,00</span>
+        <span class="period">/ mês</span>
+      </div>
+
+      <ul class="features-list">
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          1 Playlist Disponível
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          15 Músicas Por Playlist
+        </li>
+        <li class="disabled">
+          <svg class="cross-icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          Reprodução por Escolha
+        </li>
+      </ul>
+
+      <a href="Inicio.html" class="btn-plan btn-outline">Começar Grátis</a>
+    </div>
+
+    <div class="plan-card">
+      <h2 class="plan-title">Básico</h2>
       
       <div class="plan-price">
         <span class="currency">R$</span>
@@ -234,14 +284,13 @@
         </li>
       </ul>
 
-      <a href="UsuárioLogado4.html" class="btn-plan btn-secondary">Escolher Básico</a>
+      <a href="PagamentoPlano.html" class="btn-plan btn-secondary">Escolher Básico</a>
     </div>
 
-    <!-- PLANO PREMIUM -->
     <div class="plan-card featured">
       <span class="badge">Mais Popular</span>
       
-      <h2 class="plan-title">Plano Premium</h2>
+      <h2 class="plan-title">Premium</h2>
       
       <div class="plan-price">
         <span class="currency">R$</span>
@@ -264,7 +313,7 @@
         </li>
       </ul>
 
-      <a href="UsuárioLogado4.html" class="btn-plan btn-primary">Assinar Premium</a>
+      <a href="PagamentoPlano.html" class="btn-plan btn-primary">Assinar Premium</a>
     </div>
 
   </main>

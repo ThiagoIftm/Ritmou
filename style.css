@@ -14,7 +14,7 @@
     }
 
 
-/* ==================== CABEÇALHO (169PX) ==================== */
+/* ==================== CABEÇALHO ==================== */
     .header {
       width: 100%;
       height: 169px;
@@ -246,6 +246,7 @@
 
     .sidebar-left.expanded .sidebar-title-text {
       display: inline;
+      margin: 0 0 20px 0;
     }
 
     .playlist-list {
@@ -267,9 +268,10 @@
       gap: 11px;
       color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 900;
       white-space: nowrap;
       width: 100%;
+      margin: 0 0 20px;
     }
 
     .sidebar-left.expanded .playlist-item {
@@ -277,8 +279,8 @@
     }
 
     .playlist-thumb {
-      width: 41px;
-      height: 41px;
+      width: 50px;
+      height: 50px;
       border-radius: 9px;
       object-fit: cover;
       background-color: #4a8bf5;
@@ -370,7 +372,7 @@
       display: flex;
       align-items: center;
       gap: 9px;
-      margin-bottom: 18px;
+      margin-bottom: 50px;
     }
 
     .back-btn-right {
@@ -403,6 +405,7 @@
       overflow: hidden;
       box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.3);
       flex-shrink: 0;
+      margin: 0 0 50px 0;
     }
 
     .music-cover {
@@ -451,11 +454,13 @@
       align-items: center;
       justify-content: space-between;
       margin-top: 11px;
+      margin: 50px 0 0 0;
     }
 
     .music-text .music-name {
       font-size: 15px;
       font-weight: 700;
+      margin: 0 0 20px 0;
     }
 
     .music-text .artist-name-sub {
@@ -531,6 +536,7 @@
       width: 100%;
       display: flex;
       align-items: center;
+      
     }
 
     #minimal-progress {
@@ -604,4 +610,253 @@
       width: 20px;
       height: 20px;
       fill: #000000; /* Ícone de pause preto para contrastar com o botão branco */
+    }
+
+    
+
+    /* Barra de Música Universal */
+    .universal-music-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 90px;
+        background-color: #243b8b;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        color: #fff;
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+    }
+
+    /* Esquerda: Info da Música */
+    .umb-info {
+        display: flex;
+        align-items: center;
+        width: 30%;
+        min-width: 180px;
+    }
+    .umb-info img {
+        width: 56px;
+        height: 56px;
+        border-radius: 4px;
+        margin-right: 14px;
+        object-fit: cover;
+    }
+    .umb-text {
+        display: flex;
+        flex-direction: column;
+    }
+    .umb-text a {
+        text-decoration: none;
+    }
+    #umb-nome-musica {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+    #umb-nome-artista {
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+    #umb-nome-musica:hover, #umb-nome-artista:hover {
+        text-decoration: underline;
+        color: #fff;
+    }
+
+    /* Centro: Controles Principais */
+    .umb-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+        max-width: 722px;
+    }
+    .umb-buttons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 8px;
+    }
+    .umb-buttons button {
+        background: none;
+        border: none;
+        color: #b3b3b3;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .umb-buttons button:hover { color: #fff; }
+    .play-pause-btn {
+        width: 32px;
+        height: 32px;
+        background-color: #fff !important;
+        color: #000 !important;
+        border-radius: 50%;
+    }
+    .play-pause-btn:hover { transform: scale(1.05); }
+
+    /* Barra de Progresso */
+    .umb-progress {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 8px;
+    }
+    .umb-progress span {
+        font-size: 11px;
+        color: #a7a7a7;
+        min-width: 40px;
+        text-align: center;
+    }
+    .umb-progress input[type="range"], .umb-volume input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background: #4d4d4d;
+        outline: none;
+        cursor: pointer;
+    }
+    .umb-progress input[type="range"]::-webkit-slider-thumb, .umb-volume input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    .umb-progress input[type="range"]:hover::-webkit-slider-thumb, .umb-volume input[type="range"]:hover::-webkit-slider-thumb {
+        opacity: 1;
+    }
+
+    /* Direita: Volume */
+    .umb-volume {
+        display: flex;
+        align-items: center;
+        width: 30%;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+    .umb-volume button {
+        background: none;
+        border: none;
+        color: #b3b3b3;
+        cursor: pointer;
+    }
+    .umb-volume button:hover { 
+        color: #fff; 
+    }
+
+    .umb-volume input[type="range"] { 
+        width: 100px; 
+    }
+
+
+
+
+
+
+    /* ==================== CAIXA DE RESULTADOS DA PESQUISA ==================== */
+
+
+
+
+    
+    .search-results-dropdown {
+        position: absolute;
+        top: 65px; /* Altura exata para ficar logo abaixo da search-box */
+        left: 71px; /* Pula o tamanho do botão home (54px) + gap (17px) */
+        width: 383px; /* Mesma largura da sua search-box */
+        background-color: #4a8bf5;
+        border-radius: 15px;
+        box-shadow: 11px 11px 17px rgba(0, 0, 0, 0.4);
+        display: none; /* Escondido por padrão */
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1001;
+    }
+
+    .search-result-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        transition: background-color 0.2s;
+    }
+
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+
+    .search-result-item:hover {
+        background-color: #3b7be3; /* Tom mais escuro para destaque no hover */
+    }
+
+    .search-result-img {
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
+        object-fit: cover;
+        margin-right: 12px;
+        cursor: pointer;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .search-result-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .search-result-title {
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 2px;
+    }
+
+    .search-result-title:hover {
+        text-decoration: underline;
+    }
+
+    .search-result-artist {
+        color: #e0eaff;
+        font-size: 12px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .search-result-artist:hover {
+        text-decoration: underline;
+    }
+
+    .search-play-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+    }
+
+    .search-play-btn:hover {
+        transform: scale(1.1);
     }

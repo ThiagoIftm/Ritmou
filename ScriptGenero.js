@@ -1,14 +1,11 @@
-// ScriptGenero.js
-
 let isShuffleAtivo = false;
 
-// 1. Mostrar Informações do Gênero (Capa e Título)
 function showInformacoesGenero() {
     const urlParams = new URLSearchParams(window.location.search);
     let idGen = urlParams.get('id');
 
     if (!idGen) {
-        idGen = 'g0'; // ID padrão caso nenhum seja passado
+        idGen = 'g0'; 
     }
 
     fetch('Json/Genero.json')
@@ -27,7 +24,6 @@ function showInformacoesGenero() {
         .catch(erro => console.error("Erro ao carregar o gênero:", erro));
 }
 
-// 2. Listar as Músicas do Gênero na Tabela (Ordenado por reproduções)
 function showMusicasGenero() {
     const urlParams = new URLSearchParams(window.location.search);
     let idGen = urlParams.get('id') || 'g0';
@@ -38,7 +34,7 @@ function showMusicasGenero() {
         fetch('Json/Album.json').then(res => res.json())
     ])
     .then(([musicas, artistas, albuns]) => {
-        // Filtra pelo gênero da página e ordena por quantidade de reproduções (decrescente)
+        
         const musicasDoGenero = musicas
             .filter(m => m.cod_genero === idGen)
             .sort((a, b) => (b.reproducoes_musica || 0) - (a.reproducoes_musica || 0));
@@ -46,10 +42,10 @@ function showMusicasGenero() {
         const tracklistBody = document.getElementById('tracklist-genero-body');
         if (!tracklistBody) return;
 
-        tracklistBody.innerHTML = ''; // Garante que a tabela inicie limpa
+        tracklistBody.innerHTML = ''; 
 
         musicasDoGenero.forEach((musica, index) => {
-            // Relacionar Artistas e criar links
+            
             let linksArtistas = "Desconhecido";
             if (Array.isArray(musica.cod_artista)) {
                 linksArtistas = musica.cod_artista.map(idArt => {
@@ -59,7 +55,7 @@ function showMusicasGenero() {
                 }).join(", ");
             }
 
-            // Relacionar Álbum e criar link (se houver)
+
             let linkAlbum = `<span class="track-album" style="color: #cbd5e1;">Single</span>`;
             if (musica.cod_album) {
                 const album = albuns.find(a => a.cod_album === musica.cod_album);
@@ -68,7 +64,7 @@ function showMusicasGenero() {
                 }
             }
 
-            // Montar a linha da tabela e injetar no HTML
+            
             const trackHTML = `
                 <tr class="track-row" onclick="window.location.href='MusicaDetalhe.html?id=${musica.cod_musica}'">
                   <td class="track-index">${index + 1}</td>
@@ -91,7 +87,6 @@ function showMusicasGenero() {
     .catch(erro => console.error("Erro ao carregar as músicas do gênero:", erro));
 }
 
-// 3. Configurar Botões de Reprodução e Aleatório
 function setupBotoesGenero() {
     const shuffleBtn = document.getElementById('shuffle-genero-btn');
     const shuffleIcon = document.getElementById('shuffle-icon');
@@ -100,7 +95,6 @@ function setupBotoesGenero() {
     if (shuffleBtn) {
         shuffleBtn.addEventListener('click', () => {
             isShuffleAtivo = !isShuffleAtivo;
-            // Destaca o botão com verde se estiver aleatório, branco se padrão
             shuffleIcon.style.fill = isShuffleAtivo ? '#1db954' : '#ffffff'; 
         });
     }
@@ -110,7 +104,6 @@ function setupBotoesGenero() {
     }
 }
 
-// 4. Lógica de Tocar as Músicas (Play Playlist)
 function playGeneroPlaylist() {
     const urlParams = new URLSearchParams(window.location.search);
     let idGen = urlParams.get('id') || 'g0';
@@ -118,30 +111,25 @@ function playGeneroPlaylist() {
     fetch('Json/Musica.json')
         .then(res => res.json())
         .then(musicas => {
-            // Pega todas as músicas do gênero e ordena por reproduções (decrescente)
+            
             let musicasDoGenero = musicas
                 .filter(m => m.cod_genero === idGen)
                 .sort((a, b) => (b.reproducoes_musica || 0) - (a.reproducoes_musica || 0));
                 
             if (musicasDoGenero.length === 0) return;
 
-            // Se o botão aleatório estiver ativado, embaralha a lista sem repetir
             if (isShuffleAtivo) {
-                // Algoritmo Fisher-Yates para embaralhar o Array
                 for (let i = musicasDoGenero.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [musicasDoGenero[i], musicasDoGenero[j]] = [musicasDoGenero[j], musicasDoGenero[i]];
                 }
             }
 
-            // Cria a lista apenas com os caminhos de áudio
             const listaCaminhosDeAudio = musicasDoGenero.map(m => m.caminho_arquivo);
 
-            // Conexão com ScriptMusicaGlobal.js via LocalStorage
             localStorage.setItem('playlistAtual', JSON.stringify(listaCaminhosDeAudio));
             localStorage.setItem('playlistIndexAtual', '0');
 
-            // Dispara a reprodução ou notifica o script global
             if (typeof tocarMusicaGlobal === 'function') {
                 tocarMusicaGlobal(listaCaminhosDeAudio[0]);
             } else {
@@ -151,7 +139,6 @@ function playGeneroPlaylist() {
         .catch(erro => console.error("Erro ao carregar a playlist do gênero:", erro));
 }
 
-// 5. Inicialização (Executado ao carregar a página)
 document.addEventListener('DOMContentLoaded', () => {
     showInformacoesGenero();
     showMusicasGenero(); 

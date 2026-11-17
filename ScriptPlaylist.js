@@ -1,12 +1,11 @@
 let isShuffleAtivo = false;
 
-// 1. Mostrar Informações da Playlist (Capa e Título)
 function showInformacoesPlaylist() {
     const urlParams = new URLSearchParams(window.location.search);
     let idPl = urlParams.get('id');
 
     if (!idPl) {
-        idPl = 'pl0'; // ID padrão caso nenhum seja passado na URL
+        idPl = 'pl0'; 
     }
 
     fetch('Json/Playlist.json')
@@ -25,7 +24,6 @@ function showInformacoesPlaylist() {
         .catch(erro => console.error("Erro ao carregar a playlist:", erro));
 }
 
-// 2. Listar as Músicas da Playlist na Tabela (Na ordem declarada no JSON)
 function showMusicasPlaylist() {
     const urlParams = new URLSearchParams(window.location.search);
     let idPl = urlParams.get('id') || 'pl0';
@@ -43,15 +41,13 @@ function showMusicasPlaylist() {
         const tracklistBody = document.getElementById('tracklist-playlist-body');
         if (!tracklistBody) return;
 
-        tracklistBody.innerHTML = ''; // Limpa a tabela antes de popular
-
-        // Mapeia os IDs exatamente na ordem em que aparecem no array "cod_musica" do Playlist.json
+        tracklistBody.innerHTML = ''; 
+        
         const musicasDaPlaylist = playlist.cod_musica.map(cod => {
             return musicas.find(m => m.cod_musica === cod);
-        }).filter(m => m !== undefined); // Remove valores nulos caso uma música tenha sido apagada do Musica.json
+        }).filter(m => m !== undefined); 
 
         musicasDaPlaylist.forEach((musica, index) => {
-            // Relacionar Artistas e criar links
             let linksArtistas = "Desconhecido";
             if (Array.isArray(musica.cod_artista)) {
                 linksArtistas = musica.cod_artista.map(idArt => {
@@ -61,7 +57,6 @@ function showMusicasPlaylist() {
                 }).join(", ");
             }
 
-            // Relacionar Álbum e criar link (se houver)
             let linkAlbum = `<span class="track-album" style="color: #cbd5e1;">Single</span>`;
             if (musica.cod_album) {
                 const album = albuns.find(a => a.cod_album === musica.cod_album);
@@ -70,7 +65,6 @@ function showMusicasPlaylist() {
                 }
             }
 
-            // Montar a linha da tabela e injetar no HTML
             const trackHTML = `
                 <tr class="track-row" onclick="window.location.href='MusicaDetalhe.html?id=${musica.cod_musica}'">
                   <td class="track-index">${index + 1}</td>
@@ -93,7 +87,6 @@ function showMusicasPlaylist() {
     .catch(erro => console.error("Erro ao carregar as músicas da playlist:", erro));
 }
 
-// 3. Configurar Botões de Reprodução e Aleatório
 function setupBotoesPlaylist() {
     const shuffleBtn = document.getElementById('shuffle-playlist-btn');
     const shuffleIcon = document.getElementById('shuffle-icon');
@@ -112,7 +105,6 @@ function setupBotoesPlaylist() {
     }
 }
 
-// 4. Lógica de Tocar as Músicas (Play / Global)
 function playPlaylist() {
     const urlParams = new URLSearchParams(window.location.search);
     let idPl = urlParams.get('id') || 'pl0';
@@ -125,14 +117,12 @@ function playPlaylist() {
         const playlist = playlists.find(p => p.cod_playlist === idPl);
         if (!playlist) return;
 
-        // Pega as músicas na ordem padrão da array
         let musicasDaPlaylist = playlist.cod_musica.map(cod => {
             return musicas.find(m => m.cod_musica === cod);
         }).filter(m => m !== undefined);
                 
         if (musicasDaPlaylist.length === 0) return;
 
-        // Se o botão aleatório estiver ativado, embaralha a lista sem repetir
         if (isShuffleAtivo) {
             for (let i = musicasDaPlaylist.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -140,14 +130,11 @@ function playPlaylist() {
             }
         }
 
-        // Cria a lista apenas com os caminhos de áudio
         const listaCaminhosDeAudio = musicasDaPlaylist.map(m => m.caminho_arquivo);
 
-        // Conexão com ScriptMusicaGlobal.js via LocalStorage
         localStorage.setItem('playlistAtual', JSON.stringify(listaCaminhosDeAudio));
         localStorage.setItem('playlistIndexAtual', '0');
 
-        // Dispara a reprodução ou notifica o script global
         if (typeof tocarMusicaGlobal === 'function') {
             tocarMusicaGlobal(listaCaminhosDeAudio[0]);
         } else {
@@ -157,7 +144,6 @@ function playPlaylist() {
     .catch(erro => console.error("Erro ao reproduzir a playlist:", erro));
 }
 
-// 5. Inicialização (Executado ao carregar a página)
 document.addEventListener('DOMContentLoaded', () => {
     showInformacoesPlaylist();
     showMusicasPlaylist(); 

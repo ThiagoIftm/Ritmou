@@ -3,32 +3,28 @@
         "cod_artista": "ar0",
         "nome_artista": "Grupo Menos é Mais",
         "caminho_logo_ar": "Imagens/artistas/11.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerMenosÉMais.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerMenosÉMais.png"
     },
 
     {
         "cod_artista": "ar1",
         "nome_artista": "Di Propósito",
         "caminho_logo_ar": "Imagens/artistas/9.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerDiProposito.png",
-        "texto_artista": "texto aqui"     
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerDiProposito.png"
     },
 
     {
         "cod_artista": "ar2",
         "nome_artista": "Vou Zuar",
         "caminho_logo_ar": "Imagens/artistas/8.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerVouZuar.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerVouZuar.png"
     },
 
     {
         "cod_artista": "ar3",
         "nome_artista": "Grupo Revelação",
         "caminho_logo_ar": "Imagens/artistas/51.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerGrupo Revelação.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerGrupo Revelação.png"
     },
 
     
@@ -36,16 +32,14 @@
         "cod_artista": "ar4",
         "nome_artista": "Péricles",
         "caminho_logo_ar": "Imagens/artistas/56.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerPéricles.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerPéricles.png"
     },
 
     {
         "cod_artista": "ar5",
         "nome_artista": "Turma do Pagode",
         "caminho_logo_ar": "Imagens/artistas/26.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerTurmaDoPagode.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerTurmaDoPagode.png"
     },
 
 
@@ -53,16 +47,14 @@
         "cod_artista": "ar6",
         "nome_artista": "Bruno & Marrone",
         "caminho_logo_ar": "Imagens/artistas/54.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerBruno&Marrone.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerBruno&Marrone.png"
     },
 
     {
         "cod_artista": "ar7",
         "nome_artista": "Zé Neto & Cristiano",
         "caminho_logo_ar": "Imagens/artistas/53.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerZeNeto&Cristiano.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerZeNeto&Cristiano.png"
     },
 
 
@@ -70,8 +62,7 @@
         "cod_artista": "ar8",
         "nome_artista": "Diego & Victor Hugo",
         "caminho_logo_ar": "Imagens/artistas/52.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerDiego&VictorHugo.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerDiego&VictorHugo.png"
     },
 
     
@@ -79,16 +70,14 @@
         "cod_artista": "ar9",
         "nome_artista": "MC Negão Original",
         "caminho_logo_ar": "Imagens/artistas/55.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerMCNegãoOriginal.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerMCNegãoOriginal.png"
     },
 
     {
         "cod_artista": "ar10",
         "nome_artista": "Dj Orbital",
         "caminho_logo_ar": "Imagens/artistas/18.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerDjOrbital.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerDjOrbital.png"
     },
 
 
@@ -96,26 +85,23 @@
         "cod_artista": "ar11",
         "nome_artista": "Mc Ph",
         "caminho_logo_ar": "Imagens/artistas/16.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerMcPh.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerMcPh.png"
     },
 
 
     {
         "cod_artista": "ar12",
         "nome_artista": "Vanessa da Mata",
-        "caminho_logo_ar": "Imagens/artistas/20.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerVanessa.png",
-        "texto_artista": "texto aqui"
+        "caminho_logo_ar": "Imagens/artistas/65.png",
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerVanessa.png"
     },
 
 
     {
         "cod_artista": "ar13",
         "nome_artista": "Caetano Veloso",
-        "caminho_logo_ar": "Imagens/artistas/10.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerCaetano.png",
-        "texto_artista": "texto aqui"
+        "caminho_logo_ar": "Imagens/artistas/63.png",
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerCaetano.png"
     },
 
 
@@ -123,8 +109,7 @@
         "cod_artista": "ar14",
         "nome_artista": "Tiago Iorc",
         "caminho_logo_ar": "Imagens/artistas/30.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerTiago.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerTiago.png"
     },
 
 
@@ -132,8 +117,7 @@
         "cod_artista": "ar15",
         "nome_artista": "Ferrugem",
         "caminho_logo_ar": "Imagens/artistas/45.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerFerrugem.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerFerrugem.png"
     },
 
 
@@ -141,8 +125,7 @@
         "cod_artista": "ar16",
         "nome_artista": "Jorge & Mateus",
         "caminho_logo_ar": "Imagens/artistas/31.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/MenosÉMais.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/MenosÉMais.png"
     },
 
 
@@ -150,8 +133,7 @@
         "cod_artista": "ar17",
         "nome_artista": "Thiaguinho",
         "caminho_logo_ar": "Imagens/artistas/42.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/BannerThiaguinho.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/BannerThiaguinho.png"
     },
 
 
@@ -160,8 +142,7 @@
         "cod_artista": "ar18",
         "nome_artista": "Dilsinho",
         "caminho_logo_ar": "Imagens/artistas/43.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/MenosÉMais.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/MenosÉMais.png"
     },
 
 
@@ -169,8 +150,7 @@
         "cod_artista": "ar19",
         "nome_artista": "Ludmilla",
         "caminho_logo_ar": "Imagens/artistas/44.png",
-        "caminho_banner_ar": "Imagens/artistas/banners/MenosÉMais.png",
-        "texto_artista": "texto aqui"
+        "caminho_banner_ar": "Imagens/artistas/banners/MenosÉMais.png"
     }
 
 

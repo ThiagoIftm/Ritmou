@@ -6,8 +6,6 @@
   <title>RITMOU - Painel do Administrador</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* RESET GLOBAL E FIXAÇÃO DE ROLAGEM */
-/* RESET GLOBAL E FIXAÇÃO DE ROLAGEM */
     * {
       margin: 0;
       padding: 0;
@@ -18,10 +16,10 @@
     html, body {
       height: 100%;
       overflow: hidden;
-      background-color: #e2e8f0;
+      background-color: #4e6cd8;
     }
 
-    /* ==================== CABEÇALHO (169PX) ==================== */
+    /* ==================== CABEÇALHO ==================== */
     .header {
       width: 100%;
       height: 169px;
@@ -34,7 +32,6 @@
       top: 0;
       left: 0;
       z-index: 1000;
-      box-shadow: 11px 11px 17px rgba(0, 0, 0, 0.4);
     }
 
     .header-left {
@@ -206,9 +203,10 @@
     }
 
     /* ==================== MENU LATERAL ESQUERDO ==================== */
+
     .sidebar-left {
       position: fixed;
-      top: 259px;
+      top: 150px;
       left: 0;
       bottom: 0;
       width: 86px;
@@ -224,103 +222,12 @@
       box-shadow: 4px 0 11px rgba(0, 0, 0, 0.3);
     }
 
-    .sidebar-left.expanded {
-      width: 210px;
-      align-items: flex-start;
-      padding: 18px 14px;
-    }
+    
 
-    .sidebar-toggle-btn {
-      background: none;
-      border: none;
-      color: #ffffff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 19px;
-      white-space: nowrap;
-    }
-
-    .sidebar-left.expanded .sidebar-toggle-btn {
-      justify-content: flex-start;
-    }
-
-    .toggle-icon-circle {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      border: 2px solid #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    .sidebar-title-text {
-      display: none;
-    }
-
-    .sidebar-left.expanded .sidebar-title-text {
-      display: inline;
-    }
-
-    .adm-menu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 19px;
-      width: 100%;
-      align-items: center;
-    }
-
-    .sidebar-left.expanded .adm-menu-list {
-      align-items: flex-start;
-    }
-
-    .adm-menu-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 12px;
-      white-space: nowrap;
-      width: 100%;
-      padding: 8px 11px;
-      border-radius: 9px;
-      transition: background-color 0.2s;
-    }
-
-    .adm-menu-item:hover, .adm-menu-item.active {
-      background-color: #4a8bf5;
-    }
-
-    .adm-menu-icon {
-      font-size: 18px;
-      width: 24px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .adm-menu-label {
-      display: none;
-    }
-
-    .sidebar-left.expanded .adm-menu-label {
-      display: inline;
-    }
-
-    /* ==================== MENU LATERAL DIREITO (LOGS) ==================== */
+    /* ==================== MENU LATERAL DIREITO ==================== */
     .sidebar-right {
       position: fixed;
-      top: 259px;
+      top: 154px;
       right: 0;
       bottom: 0;
       width: 68px;
@@ -450,10 +357,10 @@
       margin-top: 2px;
     }
 
-    /* ==================== CONTEÚDO PRINCIPAL (PAINEL ADMIN) ==================== */
+    /* ==================== CONTEÚDO PRINCIPAL ==================== */
     .main-content {
       position: fixed;
-      top: 259px;
+      top: 200px;
       bottom: 0;
       left: 86px;
       right: 68px;
@@ -515,7 +422,7 @@
       box-shadow: 0 0 6px #10b981;
     }
 
-    /* CARDS KPIS */
+
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -567,7 +474,7 @@
       color: #10b981;
     }
 
-    /* ESTILOS DE SEÇÕES E TABELAS DE GESTÃO */
+
     .section-card {
       background-color: #24355a;
       border-radius: 12px;
@@ -691,7 +598,7 @@
       background-color: #dc2626;
     }
 
-    /* ==================== MODAIS DE CADASTRO ==================== */
+
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -832,16 +739,11 @@
         </div>
       </div>
 
-      <div class="nav-buttons">
-        <button class="nav-btn active">VISÃO GERAL</button>
-        <button class="nav-btn">CATÁLOGO</button>
-        <button class="nav-btn">USUÁRIOS</button>
-        <button class="nav-btn">FINANCEIRO</button>
-      </div>
+
     </div>
 
     <div class="header-right">
-      <a href="UsuárioInfo13.html" class="profile-link" title="Perfil Admin">
+      <a href="AdmLogado.html" class="profile-link" title="Perfil Admin">
         <img src="Imagens/user_icon.png" alt="Foto Perfil Admin" class="profile-img">
       </a>
     </div>
@@ -849,44 +751,15 @@
 
   <!-- MENU LATERAL ESQUERDO -->
   <aside class="sidebar-left" id="sidebarLeft">
-    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()">
-      <div class="toggle-icon-circle" id="toggleIconLeft">&gt;</div>
-      <span class="sidebar-title-text">Menu Admin</span>
-    </button>
-
-    <div class="adm-menu-list">
-      <a href="#" class="adm-menu-item active">
-        <span class="adm-menu-icon">📊</span>
-        <span class="adm-menu-label">Dashboard</span>
-      </a>
-      <a href="#sec-artistas" class="adm-menu-item">
-        <span class="adm-menu-icon">🎤</span>
-        <span class="adm-menu-label">Gerenciar Artistas</span>
-      </a>
-      <a href="#sec-usuarios" class="adm-menu-item">
-        <span class="adm-menu-icon">👥</span>
-        <span class="adm-menu-label">Gerenciar Usuários</span>
-      </a>
-      <a href="#" class="adm-menu-item">
-        <span class="adm-menu-icon">💳</span>
-        <span class="adm-menu-label">Planos & MRR</span>
-      </a>
-      <a href="#" class="adm-menu-item">
-        <span class="adm-menu-icon">🖼️</span>
-        <span class="adm-menu-label">Banners & Carrossel</span>
-      </a>
-      <a href="#" class="adm-menu-item">
-        <span class="adm-menu-icon">⚙️</span>
-        <span class="adm-menu-label">Configurações</span>
-      </a>
-    </div>
+    
+    
   </aside>
 
   <!-- ÁREA CENTRAL DA PÁGINA -->
   <main class="main-content" id="mainContent">
     <section class="admin-card-container">
       
-      <!-- CABEÇALHO DA PÁGINA -->
+
       <div class="page-title-row">
         <h1 class="page-title">Painel Geral de Controle</h1>
         <div class="system-status">
@@ -895,7 +768,7 @@
         </div>
       </div>
 
-      <!-- CARDS KPIS -->
+
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-header">
@@ -934,7 +807,7 @@
         </div>
       </div>
 
-      <!-- SEÇÃO 1: GERENCIAR ARTISTAS -->
+
       <div class="section-card" id="sec-artistas">
         <div class="section-header-flex">
           <h2 class="section-title">Gerenciamento de Artistas</h2>
@@ -958,7 +831,7 @@
               <tr>
                 <td>
                   <div class="table-item-cell">
-                    <img src="Imagens/artistas/40.png" class="table-thumb" alt="Artista">
+                    <img src="Imagens/artistas/11.png" class="table-thumb" alt="Artista">
                     <span>Grupo Menos É Mais</span>
                   </div>
                 </td>
@@ -973,10 +846,10 @@
                 <td>
                   <div class="table-item-cell">
                     <img src="Imagens/artistas/37.png" class="table-thumb" alt="Artista">
-                    <span>IZA</span>
+                    <span>Diego & Victor Hugo</span>
                   </div>
                 </td>
-                <td>Pop / R&B</td>
+                <td>Sertanejo</td>
                 <td><span class="badge-verified">✓ Verificado</span></td>
                 <td>3.2M / mês</td>
                 <td>
@@ -988,7 +861,6 @@
         </div>
       </div>
 
-      <!-- SEÇÃO 2: GERENCIAR USUÁRIOS -->
       <div class="section-card" id="sec-usuarios">
         <div class="section-header-flex">
           <h2 class="section-title">Gerenciamento de Usuários</h2>
@@ -1045,7 +917,7 @@
     </section>
   </main>
 
-  <!-- MENU LATERAL DIREITO (LOGS DO SISTEMA) -->
+  <!-- MENU LATERAL DIREITO -->
   <aside class="sidebar-right" id="sidebarRight" onclick="handleRightSidebarClick(event)">
     <div class="music-collapsed-view">
       <div class="music-collapsed-btn">&lt;</div>
@@ -1067,7 +939,7 @@
     </div>
   </aside>
 
-  <!-- MODAL: ADICIONAR ARTISTA -->
+  
   <div class="modal-overlay" id="modalAddArtista">
     <div class="modal-card">
       <div class="modal-header">
@@ -1098,7 +970,6 @@
     </div>
   </div>
 
-  <!-- MODAL: ADICIONAR USUÁRIO -->
   <div class="modal-overlay" id="modalAddUsuario">
     <div class="modal-card">
       <div class="modal-header">
@@ -1129,7 +1000,7 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT DE INTERATIVIDADE -->
+ 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const sidebarLeft = document.getElementById('sidebarLeft');
@@ -1164,7 +1035,7 @@
       document.getElementById('sidebarRight').classList.remove('expanded');
     }
 
-    /* CONTROLE DOS MODAIS */
+
     function openModal(id) {
       document.getElementById(id).classList.add('active');
     }
@@ -1173,7 +1044,7 @@
       document.getElementById(id).classList.remove('active');
     }
 
-    /* FUNÇÃO DE REGISTRO DE LOGS */
+
     function addLog(title, desc, type = 'success') {
       const container = document.getElementById('logsContainer');
       const logDiv = document.createElement('div');
@@ -1186,7 +1057,7 @@
       container.prepend(logDiv);
     }
 
-    /* FUNÇÕES: ADICIONAR E REMOVER ARTISTA */
+
     function addArtista(event) {
       event.preventDefault();
       const name = document.getElementById('artistName').value;
@@ -1230,7 +1101,7 @@
       }
     }
 
-    /* FUNÇÕES: ADICIONAR E REMOVER USUÁRIO */
+  
     function addUsuario(event) {
       event.preventDefault();
       const name = document.getElementById('userName').value;
@@ -1275,6 +1146,8 @@
       }
     }
   </script>
+
+  <script src="ScriptMusicaGlobal.js"></script>
 
 </body>
 </html>

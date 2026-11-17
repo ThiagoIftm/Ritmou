@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function carregarDadosDoAlbum() {
-    // Trava de segurança: só executa se o elemento exclusivo da página de álbum existir
     if (!document.getElementById('nome-album-texto')) return;
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -49,7 +48,7 @@ function carregarDadosDoAlbum() {
 }
 
 function showMusicasAlbum() {
-    // Trava de segurança: impede que essa função limpe a tracklist-body da página do Artista
+    
     if (!document.getElementById('nome-album-texto')) return;
 
     const urlParams = new URLSearchParams(window.location.search);
