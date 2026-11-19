@@ -303,6 +303,56 @@
     }
 
 
+  .sidebar-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+    gap: 20px;
+  }
+
+  .sidebar-header-row .sidebar-toggle-btn {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+  }
+
+  .sidebar-header-row .sidebar-title-text {
+    margin: 0;
+    line-height: 1;
+  }
+
+  .add-playlist-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .add-playlist-btn {
+    margin: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #4a8bf5; 
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .add-playlist-btn:hover {
+    transform: scale(1.08);
+    background-color: #3b7be3; 
+  }
 
 
     /* ==================== MENU LATERAL DIREITO ==================== */
@@ -531,7 +581,6 @@
       gap: 15px;
     }
 
-    /* Barra de Progresso */
     .player-progress {
       width: 100%;
       display: flex;
@@ -544,7 +593,7 @@
       appearance: none;
       width: 100%;
       height: 1px;
-      background: #d1d1d1; /* Se o seu fundo for muito escuro, altere para #ffffff40 */
+      background: #d1d1d1; 
       outline: none;
       cursor: pointer;
     }
@@ -555,7 +604,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #ffffff; /* Alterado para branco para destacar no fundo transparente */
+      background: #ffffff;
       cursor: pointer;
     }
 
@@ -568,7 +617,6 @@
       cursor: pointer;
     }
 
-    /* Controlos de Reprodução */
     .player-controls-bottom {
       display: flex;
       justify-content: center;
@@ -590,14 +638,13 @@
     .icon-skip {
       width: 24px;
       height: 24px;
-      fill: #ffffff; /* Alterado para branco para visibilidade no seu tema escuro */
+      fill: #ffffff; 
     }
 
-    /* Botão Play/Pause Circular */
     .play-pause-btn {
       width: 44px;
       height: 44px;
-      background-color: #ffffff; /* Fundo branco */
+      background-color: #ffffff;
       border-radius: 50%;
       transition: transform 0.2s;
     }
@@ -609,12 +656,11 @@
     .icon-pause {
       width: 20px;
       height: 20px;
-      fill: #000000; /* Ícone de pause preto para contrastar com o botão branco */
+      fill: #000000;
     }
 
     
 
-    /* Barra de Música Universal */
     .universal-music-bar {
         position: fixed;
         bottom: 0;
@@ -632,7 +678,6 @@
         box-sizing: border-box;
     }
 
-    /* Esquerda: Info da Música */
     .umb-info {
         display: flex;
         align-items: center;
@@ -668,7 +713,6 @@
         color: #fff;
     }
 
-    /* Centro: Controles Principais */
     .umb-controls {
         display: flex;
         flex-direction: column;
@@ -701,7 +745,6 @@
     }
     .play-pause-btn:hover { transform: scale(1.05); }
 
-    /* Barra de Progresso */
     .umb-progress {
         display: flex;
         align-items: center;
@@ -736,7 +779,6 @@
         opacity: 1;
     }
 
-    /* Direita: Volume */
     .umb-volume {
         display: flex;
         align-items: center;
@@ -771,13 +813,13 @@
     
     .search-results-dropdown {
         position: absolute;
-        top: 65px; /* Altura exata para ficar logo abaixo da search-box */
-        left: 71px; /* Pula o tamanho do botão home (54px) + gap (17px) */
-        width: 383px; /* Mesma largura da sua search-box */
+        top: 65px;
+        left: 71px;
+        width: 383px;
         background-color: #4a8bf5;
         border-radius: 15px;
         box-shadow: 11px 11px 17px rgba(0, 0, 0, 0.4);
-        display: none; /* Escondido por padrão */
+        display: none;
         flex-direction: column;
         overflow: hidden;
         z-index: 1001;
@@ -796,7 +838,7 @@
     }
 
     .search-result-item:hover {
-        background-color: #3b7be3; /* Tom mais escuro para destaque no hover */
+        background-color: #3b7be3;
     }
 
     .search-result-img {

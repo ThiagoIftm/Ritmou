@@ -238,9 +238,21 @@
 
   <!-- MENU LATERAL ESQUERDO -->
   <aside class="sidebar-left expanded" id="sidebarLeft">
-    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()"> 
-      <span class="sidebar-title-text">Sua Biblioteca</span>
-    </button>
+    <div class="sidebar-header-row" style="display: flex; align-items: center; justify-content: space-between; padding-right: 15px; margin-bottom: 15px;">
+      
+      <button class="sidebar-toggle-btn"> 
+        <span class="sidebar-title-text">Sua Biblioteca</span>
+      </button>
+
+      <a href="CriarPlaylist.html" title="Criar Nova Playlist" class="add-playlist-link">
+        <button class="add-playlist-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          </svg>
+        </button>
+      </a>
+      
+    </div>
 
     <div class="playlist-list">
       <a href="Playlist.html?id=pl0" class="playlist-item">
@@ -501,6 +513,44 @@
 
       sidebarRight.classList.remove('expanded');
     }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const playlistsGrid = document.querySelector('.playlists-grid');
+      const playlistsUser = JSON.parse(sessionStorage.getItem('ritmou_playlists_user')) || [];
+
+      if (playlistsGrid && playlistsUser.length > 0) {
+        playlistsUser.forEach(pl => {
+          const a = document.createElement('a');
+          a.href = `Playlist.html?id=${pl.id}`;
+          a.className = 'playlist-card';
+          
+          // Replica a estrutura exata da sua caixa de playlist
+          a.innerHTML = `
+            <div class="playlist-cover-wrapper">
+              <img src="${pl.capa}" alt="${pl.nome}" class="playlist-cover-img">
+              <div class="play-hover-overlay">
+                 <!-- Pode adicionar o ícone de play aqui se desejar -->
+              </div>
+            </div>
+            <div class="playlist-details">
+              <div class="playlist-header-row">
+                <h2 class="playlist-title-text">${pl.nome}</h2>
+                <span class="playlist-tag">Sua Playlist</span>
+              </div>
+              <p class="playlist-description">Playlist criada por você com suas músicas favoritas.</p>
+              <div class="playlist-meta-info">
+                <span class="meta-item">🎵 ${pl.musicas.length} Músicas</span>
+                <span class="meta-item">❤️ 0 Curtidas</span>
+              </div>
+            </div>
+          `;
+          
+          playlistsGrid.appendChild(a);
+        });
+      }
+    });
+    
   </script>
 
   <script src="ScriptMusicaGlobal.js"></script>

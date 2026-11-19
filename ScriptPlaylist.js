@@ -1,51 +1,67 @@
 let isShuffleAtivo = false;
 
-function showInformacoesPlaylist() {
-    const urlParams = new URLSearchParams(window.location.search);
-    let idPl = urlParams.get('id');
-
-    if (!idPl) {
-        idPl = 'pl0'; 
+// 1. Função auxiliar para buscar a playlist de onde ela estiver (User Session ou JSON Padrão)
+async function getPlaylist(idPl) {
+    // Primeiro verifica as playlists criadas pelo usuário
+    const playlistsUser = JSON.parse(sessionStorage.getItem('ritmou_playlists_user')) || [];
+    const playlistUser = playlistsUser.find(pl => pl.id === idPl);
+    
+    if (playlistUser) {
+        return {
+            cod_playlist: playlistUser.id,
+            nome_playlist: playlistUser.nome,
+            caminho_logo_pl: playlistUser.capa,
+            // Extrai apenas os códigos para manter compatibilidade com o formato do JSON
+            cod_musica: playlistUser.musicas.map(m => m.cod_musica) 
+        };
     }
 
-    fetch('Json/Playlist.json')
-        .then(resposta => {
-            if (!resposta.ok) throw new Error("Erro na leitura de Playlist.json");
-            return resposta.json();
-        })
-        .then(playlists => {
-            const playlist = playlists.find(p => p.cod_playlist === idPl);
-
-            if (playlist) {
-                document.getElementById('capa-playlist-img').src = playlist.caminho_logo_pl;
-                document.getElementById('nome-playlist-texto').textContent = playlist.nome_playlist;
-            }
-        })
-        .catch(erro => console.error("Erro ao carregar a playlist:", erro));
+    // Se não achou na sessão, busca no JSON do sistema
+    try {
+        const res = await fetch('Json/Playlist.json');
+        const playlistsSystem = await res.json();
+        return playlistsSystem.find(p => p.cod_playlist === idPl);
+    } catch (erro) {
+        console.error("Erro ao ler Playlist.json:", erro);
+        return null;
+    }
 }
 
-function showMusicasPlaylist() {
+// 2. Função principal para carregar as informações e músicas
+async function carregarPaginaPlaylist() {
     const urlParams = new URLSearchParams(window.location.search);
     let idPl = urlParams.get('id') || 'pl0';
 
-    Promise.all([
-        fetch('Json/Playlist.json').then(res => res.json()),
-        fetch('Json/Musica.json').then(res => res.json()),
-        fetch('Json/Artista.json').then(res => res.json()),
-        fetch('Json/Album.json').then(res => res.json())
-    ])
-    .then(([playlists, musicas, artistas, albuns]) => {
-        const playlist = playlists.find(p => p.cod_playlist === idPl);
-        if (!playlist) return;
+    const playlist = await getPlaylist(idPl);
+
+    if (!playlist) {
+        document.getElementById('nome-playlist-texto').textContent = 'Playlist não encontrada';
+        return;
+    }
+
+    // Informações Base (Capa e Nome)
+    document.getElementById('capa-playlist-img').src = playlist.caminho_logo_pl || 'Imagens/default-placeholder.png';
+    document.getElementById('nome-playlist-texto').textContent = playlist.nome_playlist;
+
+    // Busca dependências para montar a lista
+    try {
+        const [musicas, artistas, albuns] = await Promise.all([
+            fetch('Json/Musica.json').then(res => res.json()),
+            fetch('Json/Artista.json').then(res => res.json()),
+            fetch('Json/Album.json').then(res => res.json()).catch(() => []) // catch se não houver Album.json
+        ]);
 
         const tracklistBody = document.getElementById('tracklist-playlist-body');
         if (!tracklistBody) return;
-
         tracklistBody.innerHTML = ''; 
-        
-        const musicasDaPlaylist = playlist.cod_musica.map(cod => {
+
+        const musicasDaPlaylist = (playlist.cod_musica || []).map(cod => {
             return musicas.find(m => m.cod_musica === cod);
-        }).filter(m => m !== undefined); 
+        }).filter(m => m !== undefined);
+
+        if (musicasDaPlaylist.length === 0) {
+            tracklistBody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 30px; color: #cbd5e1;">Esta playlist está vazia.</td></tr>';
+        }
 
         musicasDaPlaylist.forEach((musica, index) => {
             let linksArtistas = "Desconhecido";
@@ -66,7 +82,7 @@ function showMusicasPlaylist() {
             }
 
             const trackHTML = `
-                <tr class="track-row" onclick="window.location.href='MusicaDetalhe.html?id=${musica.cod_musica}'">
+                <tr class="track-row" onclick="tocarMusicaDaLista('${musica.caminho_arquivo}')">
                   <td class="track-index">${index + 1}</td>
                   <td>
                     <div class="track-title-cell">
@@ -77,75 +93,80 @@ function showMusicasPlaylist() {
                       </div>
                     </div>
                   </td>
-                  <td class="track-time">${musica.duracao_musica}</td>
+                  <td class="track-time">${musica.duracao_musica || '--:--'}</td>
                   <td class="track-album">${linkAlbum}</td>
                 </tr>
             `;
             tracklistBody.insertAdjacentHTML('beforeend', trackHTML);
         });
-    })
-    .catch(erro => console.error("Erro ao carregar as músicas da playlist:", erro));
+        
+        // Configura os botões passando os dados atuais
+        setupBotoesPlaylist(playlist, musicas);
+        
+    } catch (erro) {
+        console.error("Erro ao carregar as músicas da playlist:", erro);
+    }
 }
 
-function setupBotoesPlaylist() {
+// 3. Configuração dos Botões (Shuffle e Play Geral)
+function setupBotoesPlaylist(playlist, musicasTodas) {
     const shuffleBtn = document.getElementById('shuffle-playlist-btn');
-    const shuffleIcon = document.getElementById('shuffle-icon');
     const playBtn = document.getElementById('play-playlist-btn');
 
     if (shuffleBtn) {
-        shuffleBtn.addEventListener('click', () => {
+        // Clona e substitui para remover event listeners duplicados (caso atualize a página)
+        const novoShuffle = shuffleBtn.cloneNode(true);
+        shuffleBtn.parentNode.replaceChild(novoShuffle, shuffleBtn);
+        
+        novoShuffle.addEventListener('click', () => {
             isShuffleAtivo = !isShuffleAtivo;
-            // Destaca o botão com verde se estiver aleatório, branco se padrão
-            shuffleIcon.style.fill = isShuffleAtivo ? '#1db954' : '#ffffff'; 
+            novoShuffle.querySelector('.shuffle-icon').style.fill = isShuffleAtivo ? '#1db954' : '#ffffff'; 
         });
     }
 
     if (playBtn) {
-        playBtn.addEventListener('click', playPlaylist);
+        const novoPlay = playBtn.cloneNode(true);
+        playBtn.parentNode.replaceChild(novoPlay, playBtn);
+        
+        novoPlay.addEventListener('click', () => playPlaylist(playlist, musicasTodas));
     }
 }
 
-function playPlaylist() {
-    const urlParams = new URLSearchParams(window.location.search);
-    let idPl = urlParams.get('id') || 'pl0';
+// 4. Tocar a Playlist Inteira (Baseado no botão principal)
+function playPlaylist(playlist, musicasTodas) {
+    let musicasDaPlaylist = (playlist.cod_musica || []).map(cod => {
+        return musicasTodas.find(m => m.cod_musica === cod);
+    }).filter(m => m !== undefined);
+            
+    if (musicasDaPlaylist.length === 0) return;
 
-    Promise.all([
-        fetch('Json/Playlist.json').then(res => res.json()),
-        fetch('Json/Musica.json').then(res => res.json())
-    ])
-    .then(([playlists, musicas]) => {
-        const playlist = playlists.find(p => p.cod_playlist === idPl);
-        if (!playlist) return;
-
-        let musicasDaPlaylist = playlist.cod_musica.map(cod => {
-            return musicas.find(m => m.cod_musica === cod);
-        }).filter(m => m !== undefined);
-                
-        if (musicasDaPlaylist.length === 0) return;
-
-        if (isShuffleAtivo) {
-            for (let i = musicasDaPlaylist.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [musicasDaPlaylist[i], musicasDaPlaylist[j]] = [musicasDaPlaylist[j], musicasDaPlaylist[i]];
-            }
+    if (isShuffleAtivo) {
+        for (let i = musicasDaPlaylist.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [musicasDaPlaylist[i], musicasDaPlaylist[j]] = [musicasDaPlaylist[j], musicasDaPlaylist[i]];
         }
+    }
 
-        const listaCaminhosDeAudio = musicasDaPlaylist.map(m => m.caminho_arquivo);
+    const listaCaminhosDeAudio = musicasDaPlaylist.map(m => m.caminho_arquivo);
 
-        localStorage.setItem('playlistAtual', JSON.stringify(listaCaminhosDeAudio));
-        localStorage.setItem('playlistIndexAtual', '0');
+    localStorage.setItem('playlistAtual', JSON.stringify(listaCaminhosDeAudio));
+    localStorage.setItem('playlistIndexAtual', '0');
 
-        if (typeof tocarMusicaGlobal === 'function') {
-            tocarMusicaGlobal(listaCaminhosDeAudio[0]);
-        } else {
-            window.dispatchEvent(new Event('novaPlaylistCarregada'));
-        }
-    })
-    .catch(erro => console.error("Erro ao reproduzir a playlist:", erro));
+    if (typeof tocarMusicaGlobal === 'function') {
+        tocarMusicaGlobal(listaCaminhosDeAudio[0]);
+    } else {
+        window.dispatchEvent(new Event('novaPlaylistCarregada'));
+    }
 }
 
+// 5. Tocar música ao clicar diretamente na linha (TR) da tabela
+function tocarMusicaDaLista(caminhoArquivo) {
+    if (typeof tocarMusicaGlobal === 'function') {
+        tocarMusicaGlobal(caminhoArquivo);
+    }
+}
+
+// 6. Start Inicial
 document.addEventListener('DOMContentLoaded', () => {
-    showInformacoesPlaylist();
-    showMusicasPlaylist(); 
-    setupBotoesPlaylist(); 
+    carregarPaginaPlaylist();
 });

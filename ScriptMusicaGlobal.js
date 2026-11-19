@@ -328,4 +328,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarPlaylistList = document.querySelector('#sidebarLeft .playlist-list');
+    
+    if (sidebarPlaylistList) {
+        // Puxa as playlists salvas
+        const playlistsUser = JSON.parse(sessionStorage.getItem('ritmou_playlists_user')) || [];
+        
+        playlistsUser.forEach(pl => {
+            const a = document.createElement('a');
+            a.href = `Playlist.html?id=${pl.id}`;
+            a.className = 'playlist-item';
+            a.innerHTML = `
+                <img src="${pl.capa}" alt="${pl.nome}" class="playlist-thumb">
+                <span class="playlist-name">${pl.nome}</span>
+            `;
+            sidebarPlaylistList.appendChild(a);
+        });
+    }
+});
+
 window.addEventListener('beforeunload', salvarEstadoMusica);

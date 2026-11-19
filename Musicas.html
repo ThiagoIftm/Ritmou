@@ -182,9 +182,21 @@
 
   <!-- MENU LATERAL ESQUERDO -->
   <aside class="sidebar-left expanded" id="sidebarLeft">
-    <button class="sidebar-toggle-btn" onclick="toggleSidebarLeft()"> 
-      <span class="sidebar-title-text">Sua Biblioteca</span>
-    </button>
+    <div class="sidebar-header-row" style="display: flex; align-items: center; justify-content: space-between; padding-right: 15px; margin-bottom: 15px;">
+      
+      <button class="sidebar-toggle-btn"> 
+        <span class="sidebar-title-text">Sua Biblioteca</span>
+      </button>
+
+      <a href="CriarPlaylist.html" title="Criar Nova Playlist" class="add-playlist-link">
+        <button class="add-playlist-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          </svg>
+        </button>
+      </a>
+      
+    </div>
 
     <div class="playlist-list">
       <a href="Playlist.html?id=pl0" class="playlist-item">
